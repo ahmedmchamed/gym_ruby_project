@@ -32,3 +32,10 @@ CREATE TABLE members (
     last_name VARCHAR(255),
     age INT
 );
+
+CREATE TABLE bookings (
+    id PRIMARY KEY,
+    member_id INT REFERENCES members(id),
+    class_id INT REFERENCES classes(id),
+    membership_id INT REFERENCES memberships(id)
+);
