@@ -20,7 +20,7 @@ CREATE TABLE memberships (
 CREATE TABLE classes (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    start_time 
+    start_time VARCHAR(255),
     duration INT,
     intensity VARCHAR(255),
     workout VARCHAR(255),
