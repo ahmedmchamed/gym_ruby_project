@@ -8,7 +8,7 @@ CREATE TABLE staff (
     id SERIAL PRIMARY KEY,
     first_name VARCHAR(255),
     last_name VARCHAR(255),
-    privilege_level INT
+    role INT
 );
 
 CREATE TABLE memberships (
@@ -20,9 +20,11 @@ CREATE TABLE memberships (
 CREATE TABLE classes (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
+    start_time 
     duration INT,
     intensity VARCHAR(255),
     workout VARCHAR(255),
+    capacity INT,
     price INT
 );
 
