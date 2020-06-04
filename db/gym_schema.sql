@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS bookings;
 DROP TABLE IF EXISTS members;
-DROP TABLE IF EXISTS classes;
+DROP TABLE IF EXISTS gymclasses;
 DROP TABLE IF EXISTS memberships;
 DROP TABLE IF EXISTS staff;
 
@@ -17,7 +17,7 @@ CREATE TABLE memberships (
     status BOOLEAN
 );
 
-CREATE TABLE classes (
+CREATE TABLE gymclasses (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     start_time VARCHAR(255),
@@ -38,6 +38,6 @@ CREATE TABLE members (
 CREATE TABLE bookings (
     id SERIAL PRIMARY KEY,
     member_id INT REFERENCES members(id),
-    class_id INT REFERENCES classes(id),
+    class_id INT REFERENCES gymclasses(id),
     membership_id INT REFERENCES memberships(id)
 );
