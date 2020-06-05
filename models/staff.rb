@@ -1,3 +1,5 @@
+require_relative('../db/sql_runner')
+
 class Staff
 
     def initialize(options)
