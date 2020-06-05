@@ -1,3 +1,4 @@
+require('time')
 require_relative('../db/sql_runner')
 
 class Gymclass

@@ -1,4 +1,5 @@
 require('pry-byebug')
+require('time')
 require_relative('../models/member')
 require_relative('../models/staff')
 
