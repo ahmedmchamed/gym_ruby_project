@@ -14,7 +14,12 @@ class Member
         (first_name, last_name, age)
         VALUES ($1, $2, $3) RETURNING id;"
         values = [@first_name, @last_name, @age]
-        @id = SqlRunner.run(sql, values)
+        @id = SqlRunner.run(sql, values)[0]['id'].to_i()
+    end
+
+    def self.delete_all()
+        sql = "DELETE FROM members;"
+        SqlRunner.run(sql)
     end
 
 end
