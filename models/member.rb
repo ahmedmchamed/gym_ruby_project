@@ -25,7 +25,7 @@ class Member
         return member_array_result.first()
     end
 
-    def self.delete_all()
+    def self.delete_all_members()
         sql = "DELETE FROM members;"
         SqlRunner.run(sql)
     end

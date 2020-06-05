@@ -2,7 +2,7 @@ require('pry-byebug')
 require_relative('../models/member')
 require_relative('../models/staff')
 
-Member.delete_all()
+Member.delete_all_members()
 
 member1 = Member.new({
     'first_name' => 'Jimbo',
