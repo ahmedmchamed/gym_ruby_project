@@ -17,4 +17,8 @@ class Staff
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
     end
 
+    def self.map_staff_data(staff_hash_data)
+        return staff_hash_data.map { |staff| Staff.new(staff) }
+    end
+
 end
