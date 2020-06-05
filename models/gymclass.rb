@@ -19,5 +19,9 @@ class Gymclass
         values = [@start_time, @duration, @intensity, @workout, @price]
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
     end
+
+    def self.start_time(year, month, day, hour, minutes)
+        return Time.new(year, month, day, hour, minutes)
+    end
     
 end
