@@ -39,5 +39,6 @@ CREATE TABLE bookings (
     id SERIAL PRIMARY KEY,
     member_id INT REFERENCES members(id),
     gymclass_id INT REFERENCES gymclasses(id) ON DELETE CASCADE,
+    capacity INT,
     membership_id INT REFERENCES memberships(id) ON DELETE CASCADE
 );
