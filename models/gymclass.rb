@@ -11,5 +11,13 @@ class Gymclass
         @capacity = options['capacity'].to_i()
         @price = options['price'].to_i()
     end
+
+    def save()
+        sql = "INSERT into gymclasses
+        (start_time, duration, intensity, workout, capacity, price)
+        VALUES ($1, $2, $3, $4, $5, $6) RETURNING id;"
+        values = [@start_time, @duration, @intensity, @workout, @capacity, @price]
+        @id = SqlRunner.run(sql, values)[0]['id'].to_i()
+    end
     
 end
