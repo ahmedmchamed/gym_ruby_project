@@ -1,3 +1,5 @@
+require_relative('../db/sql_runner')
+
 class Member
 
     def initialize(options)
