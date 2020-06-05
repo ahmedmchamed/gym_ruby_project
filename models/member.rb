@@ -22,4 +22,14 @@ class Member
         SqlRunner.run(sql)
     end
 
+    def self.find_all_members()
+        sql = "SELECT * FROM members;"
+        members_hash_result = SqlRunner.run(sql)
+        return member_array_result = self.map_member_data(members_hash_result)
+    end
+
+    def self.map_member_data(member_hash_data)
+        return member_hash_data.map { |member| Member.new(member) }
+    end
+
 end
