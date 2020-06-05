@@ -2,6 +2,7 @@ require('pry-byebug')
 require('time')
 require_relative('../models/member')
 require_relative('../models/staff')
+require_relative('../models/gymclass')
 
 Member.delete_all_members()
 Staff.delete_all_staff()
@@ -21,6 +22,15 @@ staffmember1 = Staff.new({
 })
 
 staffmember1.save()
+
+gymclass1 = Gymclass.new({
+    'name' => 'yoga',
+    'start_time' => Gymclass.start_time(2020, 6, 15, 10, 0),
+    'duration' => 45,
+    'intensity' => 'medium',
+    'workout' => 'cardio',
+    'price' => 5
+})
 
 binding.pry
 

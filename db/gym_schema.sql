@@ -24,7 +24,6 @@ CREATE TABLE gymclasses (
     duration INT,
     intensity VARCHAR(255),
     workout VARCHAR(255),
-    capacity INT,
     price INT
 );
 
