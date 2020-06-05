@@ -17,6 +17,14 @@ class Member
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
     end
 
+    def self.find_member_by_id(id)
+        sql = "SELECT * FROM members WHERE id = $1;"
+        values = [id]
+        member_hash_result = SqlRunner.run(sql, values)
+        member_array_result = self.map_member_data(member_hash_result)
+        return member_array_result.first()
+    end
+
     def self.delete_all()
         sql = "DELETE FROM members;"
         SqlRunner.run(sql)
