@@ -9,4 +9,12 @@ class Staff
         @role = options['role']
     end
 
+    def save()
+        sql = "INSERT INTO staff
+        (first_name, last_name, role) 
+        VALUES ($1, $2, $3) RETURNING id;"
+        values = [@first_name, @last_name, @role]
+        @id = SqlRunner.run(sql, values)[0]['id'].to_i()
+    end
+
 end
