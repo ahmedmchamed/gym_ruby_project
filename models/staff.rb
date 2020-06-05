@@ -17,6 +17,12 @@ class Staff
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
     end
 
+    def self.find_all_staff()
+        sql = "SELECT * FROM staff;"
+        staff_hash_result = SqlRunner.run(sql)
+        return staff_array_result = self.map_staff_data(staff_hash_result)
+    end
+
     def self.map_staff_data(staff_hash_data)
         return staff_hash_data.map { |staff| Staff.new(staff) }
     end
