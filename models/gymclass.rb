@@ -21,7 +21,7 @@ class Gymclass
     end
 
     def self.start_time(year, month, day, hour, minutes)
-        return Time.new(year, month, day, hour, minutes)
+        return Time.new(year, month, day, hour, minutes).strftime('%m/%d/%Y %H:%M')
     end
     
 end
