@@ -25,6 +25,11 @@ class Staff
         return staff_array_result.first()
     end
 
+    def self.delete_all_staff()
+        sql = "DELETE FROM staff;"
+        SqlRunner.run(sql)
+    end 
+
     def self.find_all_staff()
         sql = "SELECT * FROM staff;"
         staff_hash_result = SqlRunner.run(sql)

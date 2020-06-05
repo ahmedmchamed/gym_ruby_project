@@ -3,6 +3,7 @@ require_relative('../models/member')
 require_relative('../models/staff')
 
 Member.delete_all_members()
+Staff.delete_all_staff()
 
 member1 = Member.new({
     'first_name' => 'Jimbo',
