@@ -24,7 +24,11 @@ class GymClass
     end
 
     def self.find_class_by_id(id)
-
+        sql = "SELECT * FROM gymclasses WHERE id = $1;"
+        values = [id]
+        class_hash_result = SqlRunner.run(sql, values)
+        class_array_result = self.map_class_data(class_hash_result)
+        return class_array_result.first()
     end
 
     def self.find_all_classes()
