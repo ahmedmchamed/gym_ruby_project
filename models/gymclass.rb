@@ -1,7 +1,7 @@
 require('time')
 require_relative('../db/sql_runner')
 
-class Gymclass
+class GymClass
 
     attr_accessor :name, :duration, :intensity, :workout, :price
     attr_reader :id
@@ -21,6 +21,10 @@ class Gymclass
         VALUES ($1, $2, $3, $4, $5) RETURNING id;"
         values = [@name, @duration, @intensity, @workout, @price]
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
+    end
+
+    def self.map_class_data(class_hash_data)
+        return class_hash_data.map { |gymclass| GymClass.new(gymclass) }
     end
     
 end

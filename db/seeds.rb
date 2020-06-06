@@ -24,7 +24,7 @@ staffmember1 = Staff.new({
 
 staffmember1.save()
 
-gymclass1 = Gymclass.new({
+gymclass1 = GymClass.new({
     'name' => 'yoga',
     'duration' => 45,
     'intensity' => 'medium',
