@@ -23,6 +23,16 @@ class GymClass
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
     end
 
+    def self.find_class_by_id(id)
+
+    end
+
+    def self.find_all_classes()
+        sql = "SELECT * FROM gymclasses;"
+        gymclass_hash_result = SqlRunner.run(sql)
+        return self.map_class_data(gymclass_hash_result)
+    end
+
     def self.map_class_data(class_hash_data)
         return class_hash_data.map { |gymclass| GymClass.new(gymclass) }
     end

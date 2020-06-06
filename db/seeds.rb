@@ -32,6 +32,8 @@ gymclass1 = GymClass.new({
     'price' => 5
 })
 
+gymclass1.save()
+
 classtime1 = ClassDate.new({
     'year' => 2020, 
     'month' => 11,
