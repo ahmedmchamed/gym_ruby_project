@@ -23,6 +23,14 @@ class Booking
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
     end
 
+    def self.find_booking_by_id(id)
+        sql = "SELECT * FROM bookings WHERE id = $1;"
+        values = [id]
+        booking_hash_result = SqlRunner.run(sql, values)
+        booking_array_result = self.map_booking_data(booking_hash_result)
+        return booking_array_result.first()
+    end
+
     def self.find_all_bookings()
         sql = "SELECT * FROM bookings;"
         bookings_hash_result = SqlRunner.run(sql)
