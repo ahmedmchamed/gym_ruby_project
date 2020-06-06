@@ -3,6 +3,7 @@ require('time')
 require_relative('../models/member')
 require_relative('../models/staff')
 require_relative('../models/gymclass')
+require_relative('../models/date')
 
 Member.delete_all_members()
 Staff.delete_all_staff()
@@ -25,11 +26,19 @@ staffmember1.save()
 
 gymclass1 = Gymclass.new({
     'name' => 'yoga',
-    'start_time' => Gymclass.start_time(2020, 6, 15, 10, 0),
     'duration' => 45,
     'intensity' => 'medium',
     'workout' => 'cardio',
     'price' => 5
+})
+
+classtime1 = ClassDate.new({
+    'year' => 2020, 
+    'month' => 11,
+    'day' => 3,
+    'hour' => 10,
+    'minute' => 0,
+    'class_id' => gymclass1.id()
 })
 
 binding.pry

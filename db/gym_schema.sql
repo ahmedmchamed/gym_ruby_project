@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS bookings;
-DROP TABLE IF EXISTS members;
+DROP TABLE IF EXISTS dates;
 DROP TABLE IF EXISTS gymclasses;
+DROP TABLE IF EXISTS members;
 DROP TABLE IF EXISTS memberships;
 DROP TABLE IF EXISTS staff;
 
@@ -17,21 +18,30 @@ CREATE TABLE memberships (
     status BOOLEAN
 );
 
+CREATE TABLE members (
+    id SERIAL PRIMARY KEY,
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
+    age INT
+);
+
 CREATE TABLE gymclasses (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    start_time VARCHAR(255),
     duration INT,
     intensity VARCHAR(255),
     workout VARCHAR(255),
     price INT
 );
 
-CREATE TABLE members (
+CREATE TABLE dates (
     id SERIAL PRIMARY KEY,
-    first_name VARCHAR(255),
-    last_name VARCHAR(255),
-    age INT
+    year INT,
+    month INT,
+    day INT,
+    hour INT,
+    minute INT,
+    class_id INT REFERENCES gymclasses(id) ON DELETE CASCADE
 );
 
 CREATE TABLE bookings (
