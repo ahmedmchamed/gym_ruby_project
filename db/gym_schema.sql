@@ -36,11 +36,7 @@ CREATE TABLE gymclasses (
 
 CREATE TABLE dates (
     id SERIAL PRIMARY KEY,
-    year INT,
-    month INT,
-    day INT,
-    hour INT,
-    minute INT
+    time VARCHAR(255)
 );
 
 CREATE TABLE bookings (
