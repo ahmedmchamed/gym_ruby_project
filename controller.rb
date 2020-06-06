@@ -14,3 +14,7 @@ set :environment, :production
 get('/') do
     erb(:main)
 end
+
+get('/superhappyfungym') do
+    erb(:index)
+end
