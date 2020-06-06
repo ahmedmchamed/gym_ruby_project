@@ -19,6 +19,12 @@ class Membership
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
     end
 
+    def update_membership()
+        sql = "UPDATE memberships SET
+        (type, status) = ($1, $2) WHERE id = $3;"
+        values = [@type, @status, @id]
+    end
+
     def self.find_membership_by_id(id)
         sql = "SELECT * FROM memberships WHERE id = $1;"
         values = [id]
