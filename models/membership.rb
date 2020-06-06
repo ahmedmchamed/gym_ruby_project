@@ -27,6 +27,11 @@ class Membership
         return membership_array_result.first()
     end
 
+    def self.delete_all_memberships()
+        sql = "DELETE FROM memberships;"
+        SqlRunner.run(sql)
+    end
+
     def self.find_all_memberships()
         sql = "SELECT * FROM memberships;"
         memberships_hash_result = SqlRunner.run(sql)
