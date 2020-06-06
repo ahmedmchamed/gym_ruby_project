@@ -28,6 +28,7 @@ class Booking
         (member_id, staff_id, capacity, gymclass_id, dates_id, membership_id)
         = ($1, $2, $3, $4, $5, $6) WHERE id = $7;"
         values = [@member_id, @staff_id, @capacity, @gymclass_id, @dates_id, @membership_id, @id]
+        SqlRunner.run(sql, values)
     end
 
     def self.find_booking_by_id(id)

@@ -28,6 +28,7 @@ class ClassDate
     def update_class_time()
         sql = "UPDATE dates SET time = $1 where id = $2;"
         values = [@time, @id]
+        SqlRunner.run(sql, values)
     end
 
     def find_class_time_by_id(id)

@@ -23,6 +23,7 @@ class Membership
         sql = "UPDATE memberships SET
         (type, status) = ($1, $2) WHERE id = $3;"
         values = [@type, @status, @id]
+        SqlRunner.run(sql, values)
     end
 
     def self.find_membership_by_id(id)

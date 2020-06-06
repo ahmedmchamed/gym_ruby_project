@@ -1,5 +1,5 @@
-require('time')
 require_relative('../db/sql_runner')
+require_relative('./gymclass')
 
 class GymClass
 
@@ -23,11 +23,20 @@ class GymClass
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
     end
 
+    def members_registered()
+        sql = "SELECT members.* FROM members
+        INNER JOIN bookings ON bookings.member_id = members.id
+        WHERE bookings.gymclass_id = $1;"
+        values = [@id]
+
+    end
+
     def update_class()
         sql = "UPDATE gymclasses SET
         (name, duration, intensity, workout, price) = ($1, $2, $3, $4, $5)
         WHERE id = $6"
         values = [@name, @duration, @intensity, @workout, @price, @id]
+        SqlRunner.run(sql, values)
     end
 
     def self.find_class_by_id(id)

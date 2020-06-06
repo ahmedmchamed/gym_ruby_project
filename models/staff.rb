@@ -25,6 +25,7 @@ class Staff
         (first_name, last_name, role) = ($1, $2, $3)
         WHERE id = $4;"
         values = [@first_name, @last_name, @role, @id]
+        SqlRunner.run(sql, values)
     end
 
     def self.find_staff_by_id(id)
