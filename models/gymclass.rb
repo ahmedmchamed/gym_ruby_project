@@ -23,6 +23,13 @@ class GymClass
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
     end
 
+    def update_class()
+        sql = "UPDATE gymclasses SET
+        (name, duration, intensity, workout, price) = ($1, $2, $3, $4, $5)
+        WHERE id = $6"
+        values = [@name, @duration, @intensity, @workout, @price, @id]
+    end
+
     def self.find_class_by_id(id)
         sql = "SELECT * FROM gymclasses WHERE id = $1;"
         values = [id]
