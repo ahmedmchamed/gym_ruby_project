@@ -1,5 +1,6 @@
 require('sinatra')
 require('sinatra/contrib/all')
+# require('sinatra/reloader') if development?
 require_relative('./models/booking')
 require_relative('./models/classdate')
 require_relative('./models/gymclass')
@@ -17,4 +18,8 @@ end
 
 get('/superhappyfungym') do
     erb(:index)
+end
+
+get('/about-us') do
+    erb(:about_us)
 end
