@@ -1,3 +1,4 @@
+require_relative('./membership')
 require_relative('./gymclass')
 require_relative('../db/sql_runner')
 
@@ -23,11 +24,20 @@ class Member
 
     def member_classes()
         sql = "SELECT gymclasses.* FROM gymclasses
-        INNER JOIN bookings on bookings.gymclass_id = gymclasses.id
+        INNER JOIN bookings ON bookings.gymclass_id = gymclasses.id
         WHERE bookings.member_id = $1;"
         values = [@id]
         member_classes_hash_result = SqlRunner.run(sql, values)
         return GymClass.map_class_data(member_classes_hash_result)
+    end
+
+    def membership_information()
+        sql = "SELECT memberships.* FROM memberships
+        INNER JOIN bookings ON bookings.membership_id = memberships.id
+        WHERE bookings.member_id = $1;"
+        values = [@id]
+        member_membership_hash_result = SqlRunner.run(sql, values)
+        return Membership.map_membership_data(member_membership_hash_result)
     end
 
     def update_member()
