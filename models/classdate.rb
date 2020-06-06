@@ -25,4 +25,8 @@ class ClassDate
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
     end
 
+    def self.map_time_data(time_hash_data)
+        return time_hash_data.map { |time| ClassDate.new(time) }
+    end
+
 end
