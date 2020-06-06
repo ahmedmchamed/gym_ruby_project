@@ -30,6 +30,14 @@ class ClassDate
         values = [@time, @id]
     end
 
+    def find_class_time_by_id(id)
+        sql = "SELECT * FROM dates WHERE id = $1;"
+        values = [id]
+        time_hash_result = SqlRunner.run(sql, values)
+        time_array_result = self.map_time_data(time_hash_result)
+        return time_array_result.first()
+    end
+
     def self.map_time_data(time_hash_data)
         return time_hash_data.map { |time| ClassDate.new(time) }
     end
