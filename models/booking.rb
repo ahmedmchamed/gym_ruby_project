@@ -37,6 +37,11 @@ class Booking
         return bookings_array_result = self.map_booking_data(bookings_hash_result)
     end
 
+    def self.delete_all_bookings()
+        sql = "DELETE FROM bookings;"
+        SqlRunner.run(sql)
+    end
+
     def self.map_booking_data(booking_hash_data)
         return booking_hash_data.map { |booking| Booking.new(booking) }
     end
