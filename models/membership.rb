@@ -19,6 +19,14 @@ class Membership
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
     end
 
+    def self.find_membership_by_id(id)
+        sql = "SELECT * FROM memberships WHERE id = $1;"
+        values = [id]
+        membership_hash_result = SqlRunner.run(sql, values)
+        membership_array_result = self.map_membership_data(membership_hash_result)
+        return membership_array_result.first()
+    end
+
     def self.find_all_memberships()
         sql = "SELECT * FROM memberships;"
         memberships_hash_result = SqlRunner.run(sql)
