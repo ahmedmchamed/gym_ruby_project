@@ -20,6 +20,13 @@ class Staff
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
     end
 
+    def update_staff_member()
+        sql = "UPDATE staff SET
+        (first_name, last_name, role) = ($1, $2, $3)
+        WHERE id = $4;"
+        values = [@first_name, @last_name, @role, @id]
+    end
+
     def self.find_staff_by_id(id)
         sql = "SELECT * FROM staff WHERE id = $1;"
         values = [id]
