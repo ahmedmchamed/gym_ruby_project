@@ -23,6 +23,12 @@ class Booking
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
     end
 
+    def self.find_all_bookings()
+        sql = "SELECT * FROM bookings;"
+        bookings_hash_result = SqlRunner.run(sql)
+        return bookings_array_result = self.map_booking_data(bookings_hash_result)
+    end
+
     def self.map_booking_data(booking_hash_data)
         return booking_hash_data.map { |booking| Booking.new(booking) }
     end
