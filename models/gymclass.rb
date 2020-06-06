@@ -1,4 +1,5 @@
 require_relative('./member')
+require_relative('./staff')
 require_relative('../db/sql_runner')
 
 class GymClass
@@ -30,6 +31,15 @@ class GymClass
         values = [@id]
         members_hash_result = SqlRunner.run(sql, values)
         return members_array_result = Member.map_member_data(members_hash_result)
+    end
+
+    def staff_registered()
+        sql = "SELECT staff.* FROM staff
+        INNER JOIN bookings ON bookings.staff_id = staff.id
+        WHERE bookings.gymclass_id = $1;"
+        values = [@id]
+        staff_hash_result = SqlRunner.run(sql, values)
+        return staff_array_result = Staff.map_staff_data(staff_hash_result)
     end
 
     def update_class()
