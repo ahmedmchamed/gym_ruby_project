@@ -7,8 +7,9 @@ require_relative('../models/classdate')
 require_relative('../models/booking')
 require_relative('../models/membership')
 
-# Member.delete_all_members()
-# Staff.delete_all_staff()
+Booking.delete_all_bookings()
+Member.delete_all_members()
+Staff.delete_all_staff()
 
 member1 = Member.new({
     'first_name' => 'Jimbo',

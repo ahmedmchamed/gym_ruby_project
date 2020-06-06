@@ -23,6 +23,13 @@ class Booking
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
     end
 
+    def update_booking()
+        sql = "UPDATE bookings SET
+        (member_id, staff_id, capacity, gymclass_id, dates_id, membership_id)
+        = ($1, $2, $3, $4, $5, $6) WHERE id = $7;"
+        values = [@member_id, @staff_id, @capacity, @gymclass_id, @dates_id, @membership_id, @id]
+    end
+
     def self.find_booking_by_id(id)
         sql = "SELECT * FROM bookings WHERE id = $1;"
         values = [id]
