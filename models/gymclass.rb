@@ -2,6 +2,9 @@ require('time')
 require_relative('../db/sql_runner')
 
 class Gymclass
+
+    attr_accessor :name, :start_time, :duration, :intensity, :workout, :price
+    attr_reader :id
    
     def initialize(options)
         @id = options['id'].to_i() if options['id']
