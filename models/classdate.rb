@@ -25,6 +25,11 @@ class ClassDate
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
     end
 
+    def update_class_time()
+        sql = "UPDATE dates SET time = $1 where id = $2;"
+        values = [@time, @id]
+    end
+
     def self.map_time_data(time_hash_data)
         return time_hash_data.map { |time| ClassDate.new(time) }
     end
