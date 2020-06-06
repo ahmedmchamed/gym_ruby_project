@@ -40,15 +40,15 @@ CREATE TABLE dates (
     month INT,
     day INT,
     hour INT,
-    minute INT,
-    class_id INT REFERENCES gymclasses(id) ON DELETE CASCADE
+    minute INT
 );
 
 CREATE TABLE bookings (
     id SERIAL PRIMARY KEY,
     member_id INT REFERENCES members(id),
     staff_id INT REFERENCES staff(id),
-    gymclass_id INT REFERENCES gymclasses(id) ON DELETE CASCADE,
     capacity INT,
+    gymclass_id INT REFERENCES gymclasses(id) ON DELETE CASCADE,
+    dates_id INT REFERENCES dates(id) ON DELETE CASCADE,
     membership_id INT REFERENCES memberships(id) ON DELETE CASCADE
 );

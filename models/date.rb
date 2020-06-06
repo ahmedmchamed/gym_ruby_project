@@ -4,7 +4,7 @@ require_relative('../db/sql_runner')
 class ClassDate
 
     attr_accessor :time
-    attr_reader :id, :class_id
+    attr_reader :id
 
     def initialize(options)
         @id = options['id'].to_i() if options['id']
@@ -15,14 +15,13 @@ class ClassDate
             options['hour'].to_int(),
             options['minute'].to_int()
         )
-        @class_id = options['class_id'].to_i()
     end
 
     def save()
         sql = "INSERT INTO dates
-        (time, class_id)
-        VALUES ($1, $2) RETURNING id;"
-        values = [@time, @class_id]
+        (time)
+        VALUES ($1) RETURNING id;"
+        values = [@time]
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
     end
 

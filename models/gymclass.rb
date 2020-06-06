@@ -31,6 +31,11 @@ class GymClass
         return class_array_result.first()
     end
 
+    def self.delete_all_classes()
+        sql = "DELETE FROM gymclasses;"
+        SqlRunner.run(sql)
+    end
+
     def self.find_all_classes()
         sql = "SELECT * FROM gymclasses;"
         gymclass_hash_result = SqlRunner.run(sql)
