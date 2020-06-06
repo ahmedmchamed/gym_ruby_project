@@ -2,6 +2,9 @@ require_relative('../db/sql_runner')
 
 class Staff
 
+    attr_accessor :first_name, :last_name, :role
+    attr_reader :id
+
     def initialize(options)
         @id = options['id'].to_i() if options['id']
         @first_name = options['first_name']
