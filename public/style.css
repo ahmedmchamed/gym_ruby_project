@@ -32,7 +32,7 @@ div.staff-gallery > p {
     overflow: hidden;
   }
   
-  .topnav a {
+.topnav a {
     float: left;
     display: block;
     color: #121212;
@@ -43,10 +43,21 @@ div.staff-gallery > p {
     border-bottom: 10px solid transparent;
   }
   
-  .topnav a:hover {
+.topnav a:hover {
     border-bottom: 10px solid rgb(243, 17, 96);
   }
   
-  .topnav a.active {
+.topnav a.active {
     border-bottom: 10px solid rgb(243, 17, 96);
   }
+
+#member-login-form {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.member-login-form div {
+    width: 100px;
+    height: 100px;
+}

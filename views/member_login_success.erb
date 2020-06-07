@@ -1,2 +1,4 @@
-<%=@member_logged_in['member_details'].first_name %>
-<%=@member_logged_in['membership_details'].type %>
+<ul>
+    <p>Hi there <%=@member_logged_in['member_details'].first_name %>, here are your membership details</p>
+    <li><%=@member_logged_in['membership_details'].type %></li>
+</ul>
