@@ -31,8 +31,8 @@ get('/classes') do
     erb(:classes)
 end
 
-get('/login') do
-    erb(:member_signin)
+get('/register') do
+    erb(:member_register)
 end
 
 post('/login') do
@@ -45,4 +45,5 @@ post('/register') do
     new_membership.save()
     params['membership_id'] = new_membership.id()
     new_member = Member.new(params).save()
+    erb(:member_registration_success)
 end

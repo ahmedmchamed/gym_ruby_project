@@ -39,12 +39,6 @@ class Member
     end
 
     def membership_information()
-        # sql = "SELECT memberships.* FROM memberships
-        # INNER JOIN bookings ON bookings.membership_id = memberships.id
-        # WHERE bookings.member_id = $1;"
-        # values = [@id]
-        # member_membership_hash_result = SqlRunner.run(sql, values)
-        # return Membership.map_membership_data(member_membership_hash_result)
         sql = "SELECT * FROM memberships WHERE id = $1;"
         values = [@membership_id]
         membership_hash_result = SqlRunner.run(sql, values)
@@ -68,7 +62,7 @@ class Member
         member_login_hash_result = SqlRunner.run(sql_login, values_login)
         member_login_array_result = self.map_member_data(member_login_hash_result)
         member_object = member_login_array_result.first()
-        membership_info = member_object.membership_information().first()
+        membership_info = Membership.find_membership_by_id(member_object.membership_id())
         return member_hash = {
             'member_details' => member_object,
             'membership_details' => membership_info
