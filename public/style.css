@@ -5,6 +5,18 @@
     font-family: sans-serif;
 }
 
+#homepage > div.homepage-link {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 .topnav {
     background-color: white;
     overflow: hidden;

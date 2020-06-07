@@ -10,7 +10,7 @@ require_relative('./models/staff')
 
 also_reload('./models/*')
 
-set :environment, :production
+# set :environment, :production
 
 get('/') do
     erb(:main)
@@ -22,4 +22,9 @@ end
 
 get('/about-us') do
     erb(:about_us)
+end
+
+get('/classes') do
+    @all_classes = GymClass.find_all_classes()
+    erb(:classes)
 end

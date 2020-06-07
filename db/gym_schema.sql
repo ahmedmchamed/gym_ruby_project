@@ -27,6 +27,7 @@ CREATE TABLE members (
 
 CREATE TABLE gymclasses (
     id SERIAL PRIMARY KEY,
+    url VARCHAR(255),
     name VARCHAR(255),
     duration INT,
     intensity VARCHAR(255),

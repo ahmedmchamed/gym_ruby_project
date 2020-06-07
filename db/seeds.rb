@@ -8,6 +8,7 @@ require_relative('../models/booking')
 require_relative('../models/membership')
 
 Booking.delete_all_bookings()
+GymClass.delete_all_classes()
 Member.delete_all_members()
 Staff.delete_all_staff()
 
@@ -29,6 +30,7 @@ staffmember1.save()
 
 gymclass1 = GymClass.new({
     'name' => 'yoga',
+    'url' => 'yoga.png',
     'duration' => 45,
     'intensity' => 'medium',
     'workout' => 'cardio',
@@ -36,6 +38,41 @@ gymclass1 = GymClass.new({
 })
 
 gymclass1.save()
+
+gymclass2 = GymClass.new({
+    'name' => 'trampolining',
+    'url' => 'trampolining.png',
+    'duration' => 30,
+    'intensity' => 'high',
+    'workout' => 'cardio',
+    'price' => 5
+})
+
+gymclass2.save()
+
+gymclass3 = GymClass.new({
+    'name' => 'pilates',
+    'url' => 'pilates.png',
+    'duration' => 60,
+    'intensity' => 'medium',
+    'workout' => 'cardio',
+    'price' => 5
+})
+
+gymclass3.save()
+
+gymclass4 = GymClass.new({
+    'name' => 'swimming',
+    'url' => 'swimming.png',
+    'duration' => 45,
+    'intensity' => 'medium',
+    'workout' => 'cardio',
+    'price' => 5
+})
+
+gymclass4.save()
+
+gymclass1url = gymclass1['url']
 
 classtime1 = ClassDate.new({
     'year' => 2020, 
