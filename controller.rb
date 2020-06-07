@@ -21,6 +21,7 @@ get('/superhappyfungym') do
 end
 
 get('/about-us') do
+    @all_staff = Staff.find_all_staff()
     erb(:about_us)
 end
 

@@ -5,13 +5,23 @@
     font-family: sans-serif;
 }
 
+div.staff-gallery > p {
+    display: flex;
+}
+
 #homepage > div.homepage-link {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.gallery {
+.about_us_header {
+    display: flexbox;
+    justify-content: left;
+    align-items: flex-start;
+}
+
+.gallery-row {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
