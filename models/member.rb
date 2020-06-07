@@ -56,6 +56,11 @@ class Member
         member_login_hash_result = SqlRunner.run(sql_login, values_login)
         member_login_array_result = self.map_member_data(member_login_hash_result)
         member_object = member_login_array_result.first()
+        membership_info = member_object.membership_information()
+        member_hash = {
+            'member_details' => member_object,
+            'membership_details' => membership_info
+        }
     end
 
     def self.find_member_by_id(id)
