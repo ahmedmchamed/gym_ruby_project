@@ -52,11 +52,11 @@ class Member
         member_hash = Hash.new(0)
         sql_login = "SELECT * FROM members WHERE first_name IN ($1)
         AND last_name IN ($2) AND age in ($3);"
-        values_login = [parameters['first_name'], parameters['last_name'], parameters['age']]
+        values_login = [parameters['first_name'], parameters['last_name'], parameters['age'].to_i()]
         member_login_hash_result = SqlRunner.run(sql_login, values_login)
         member_login_array_result = self.map_member_data(member_login_hash_result)
         member_object = member_login_array_result.first()
-        membership_info = member_object.membership_information()
+        membership_info = member_object.membership_information().first()
         return member_hash = {
             'member_details' => member_object,
             'membership_details' => membership_info

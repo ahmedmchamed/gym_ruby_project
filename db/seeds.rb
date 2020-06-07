@@ -12,6 +12,12 @@ GymClass.delete_all_classes()
 Member.delete_all_members()
 Staff.delete_all_staff()
 
+member_login_test = {
+    'first_name' => 'Jimbo',
+    'last_name' => 'McNugget',
+    'age' => 47
+}
+
 member1 = Member.new({
     'first_name' => 'Jimbo',
     'last_name' => 'McNugget',
@@ -19,6 +25,8 @@ member1 = Member.new({
 })
 
 member1.save()
+
+testing_login = Member.member_login(member_login_test)
 
 staffmember1 = Staff.new({
     'profile_image' => 'staff1.png',

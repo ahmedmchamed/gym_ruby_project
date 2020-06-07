@@ -29,3 +29,12 @@ get('/classes') do
     @all_classes = GymClass.find_all_classes()
     erb(:classes)
 end
+
+get('/login') do
+    erb(:member_signin)
+end
+
+post('/login') do
+    @member_logged_in = Member.member_login(params)
+    erb(:member_login_success)
+end
