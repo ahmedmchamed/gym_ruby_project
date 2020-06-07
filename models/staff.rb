@@ -35,7 +35,7 @@ class Staff
         sql = "UPDATE staff SET
         (profile_image, first_name, last_name, role) = ($1, $2, $3)
         WHERE id = $4;"
-        values = [@profile_image @first_name, @last_name, @role, @id]
+        values = [@profile_image, @first_name, @last_name, @role, @id]
         SqlRunner.run(sql, values)
     end
 

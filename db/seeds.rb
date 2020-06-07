@@ -21,6 +21,7 @@ member1 = Member.new({
 member1.save()
 
 staffmember1 = Staff.new({
+    'profile_image' => 'staff1.png',
     'first_name' => 'Bawbag',
     'last_name' => 'McNasty',
     'role' => 0
@@ -71,8 +72,6 @@ gymclass4 = GymClass.new({
 })
 
 gymclass4.save()
-
-gymclass1url = gymclass1['url']
 
 classtime1 = ClassDate.new({
     'year' => 2020, 
