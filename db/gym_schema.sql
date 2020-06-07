@@ -16,14 +16,15 @@ CREATE TABLE staff (
 CREATE TABLE memberships (
     id SERIAL PRIMARY KEY,
     type VARCHAR(255),
-    status BOOLEAN
+    status VARCHAR(255)
 );
 
 CREATE TABLE members (
     id SERIAL PRIMARY KEY,
     first_name VARCHAR(255),
     last_name VARCHAR(255),
-    age INT
+    age INT,
+    membership_id INT REFERENCES memberships(id) 
 );
 
 CREATE TABLE gymclasses (

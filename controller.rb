@@ -1,3 +1,4 @@
+require('pry')
 require('sinatra')
 require('sinatra/contrib/all')
 # require('sinatra/reloader') if development?
@@ -10,7 +11,7 @@ require_relative('./models/staff')
 
 also_reload('./models/*')
 
-# set :environment, :production
+set :environment, :production
 
 get('/') do
     erb(:main)
@@ -40,6 +41,8 @@ post('/login') do
 end
 
 post('/register') do
-    new_member = Member.new(params['first_name'], params['last_name'], params['age'])
-    new_membership = Membership.new(params['type'], params['status'])
+    new_membership = Membership.new(params)
+    new_membership.save()
+    params['membership_id'] = new_membership.id()
+    new_member = Member.new(params).save()
 end

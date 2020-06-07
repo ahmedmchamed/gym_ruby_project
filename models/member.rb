@@ -5,21 +5,28 @@ require_relative('../db/sql_runner')
 class Member
 
     attr_accessor :first_name, :last_name, :age
-    attr_reader :id
+    attr_reader :id, :membership_id
 
     def initialize(options)
         @id = options['id'].to_i() if options['id']
         @first_name = options['first_name']
         @last_name = options['last_name']
         @age = options['age'].to_i()
+        @membership_id = options['membership_id'].to_i()
     end
 
     def save()
         sql = "INSERT INTO members
-        (first_name, last_name, age)
-        VALUES ($1, $2, $3) RETURNING id;"
-        values = [@first_name, @last_name, @age]
+        (first_name, last_name, age, membership_id)
+        VALUES ($1, $2, $3, $4) RETURNING id;"
+        values = [@first_name, @last_name, @age, @membership_id]
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
+    end
+
+    def set_membership(new_membership_id)
+        sql = "UPDATE members SET membership_id = $1;"
+        values = [new_membership_id]
+        SqlRunner.run(sql, values)
     end
 
     def member_classes()
@@ -32,19 +39,24 @@ class Member
     end
 
     def membership_information()
-        sql = "SELECT memberships.* FROM memberships
-        INNER JOIN bookings ON bookings.membership_id = memberships.id
-        WHERE bookings.member_id = $1;"
-        values = [@id]
-        member_membership_hash_result = SqlRunner.run(sql, values)
-        return Membership.map_membership_data(member_membership_hash_result)
+        # sql = "SELECT memberships.* FROM memberships
+        # INNER JOIN bookings ON bookings.membership_id = memberships.id
+        # WHERE bookings.member_id = $1;"
+        # values = [@id]
+        # member_membership_hash_result = SqlRunner.run(sql, values)
+        # return Membership.map_membership_data(member_membership_hash_result)
+        sql = "SELECT * FROM memberships WHERE id = $1;"
+        values = [@membership_id]
+        membership_hash_result = SqlRunner.run(sql, values)
+        membership_array_result = Membership.map_membership_data(membership_hash_result)
+        return membership_array_result.first()
     end
 
     def update_member()
         sql = "UPDATE members SET
-        (first_name, last_name, age) = ($1, $2, $3)
-        WHERE id = $4"
-        values = [@first_name, @last_name, @age, @id]
+        (first_name, last_name, age, membership_id) = ($1, $2, $3, $4)
+        WHERE id = $5"
+        values = [@first_name, @last_name, @age, @membership_id, @id]
         SqlRunner.run(sql, values)
     end
 

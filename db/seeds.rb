@@ -12,21 +12,21 @@ GymClass.delete_all_classes()
 Member.delete_all_members()
 Staff.delete_all_staff()
 
-member_login_test = {
-    'first_name' => 'Jimbo',
-    'last_name' => 'McNugget',
-    'age' => 47
-}
+membershiptier1 = Membership.new({
+    'type' => 'Premium',
+    'status' => 'Active'
+})
+
+membershiptier1.save()
 
 member1 = Member.new({
     'first_name' => 'Jimbo',
     'last_name' => 'McNugget',
-    'age' => 47
+    'age' => 47,
+    'membership_id' => membershiptier1.id()
 })
 
 member1.save()
-
-testing_login = Member.member_login(member_login_test)
 
 staffmember1 = Staff.new({
     'profile_image' => 'staff1.png',
@@ -91,13 +91,6 @@ classtime1 = ClassDate.new({
 })
 
 classtime1.save()
-
-membershiptier1 = Membership.new({
-    'type' => 'Premium',
-    'status' => true
-})
-
-membershiptier1.save()
 
 booking1 = Booking.new({
     'member_id' => member1.id(),
