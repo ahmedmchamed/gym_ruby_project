@@ -38,3 +38,8 @@ post('/login') do
     @member_logged_in = Member.member_login(params)
     erb(:member_login_success)
 end
+
+post('/register') do
+    new_member = Member.new(params['first_name'], params['last_name'], params['age'])
+    new_membership = Membership.new(params['type'], params['status'])
+end

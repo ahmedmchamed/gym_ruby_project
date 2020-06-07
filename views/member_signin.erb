@@ -15,3 +15,32 @@
         <input type="submit" value="LOGIN"/>
     </div>
 </form>
+
+<form method="post" action="/register" id="member-register-form">
+    <div class="member-register-form">
+        <label for="first-name-enter">First name</label>
+        <input type="text" id="first-name-enter" name="first_name">
+    </div>
+    <div class="member-register-form">
+        <label for="last-name-enter">Last name</label>
+        <input type="text" id="last-name_enter" name="last_name">
+    </div>
+    <div class="member-register-form">
+        <label for="age-enter">Age</label>
+        <input type="number" id="age-enter" name="age">
+    </div>
+    <div class="member-register-form">
+        <label for="membership-enter">Choose membership tier</label>
+        <select id="membership-enter" name="type">
+            <option value="Premium">Premium</option>
+            <option value="Standard">Standard</option>
+        </select>
+    </div>
+    <div class="member-register-form">
+        <label for="terms-agreement">Do you agree to the terms & conditions</label>
+        <input type="checkbox" id="terms-agreement" name="status" value="true">
+    </div>
+    <div class="member-register-form">
+        <input type="submit" value="REGISTER"/>
+    </div>
+</form>
