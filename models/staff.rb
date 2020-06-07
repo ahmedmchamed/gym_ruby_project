@@ -8,6 +8,7 @@ class Staff
 
     def initialize(options)
         @id = options['id'].to_i() if options['id']
+        @profile_image = options['profile_image']
         @first_name = options['first_name']
         @last_name = options['last_name']
         @role = options['role']
