@@ -3,7 +3,7 @@ require_relative('../db/sql_runner')
 
 class Staff
 
-    attr_accessor :first_name, :last_name, :role
+    attr_accessor :profile_image, :first_name, :last_name, :role
     attr_reader :id
 
     def initialize(options)
@@ -16,9 +16,9 @@ class Staff
 
     def save()
         sql = "INSERT INTO staff
-        (first_name, last_name, role) 
-        VALUES ($1, $2, $3) RETURNING id;"
-        values = [@first_name, @last_name, @role]
+        (profile_image, first_name, last_name, role) 
+        VALUES ($1, $2, $3, $4) RETURNING id;"
+        values = [@profile_image, @first_name, @last_name, @role]
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
     end
 
@@ -33,9 +33,9 @@ class Staff
 
     def update_staff_member()
         sql = "UPDATE staff SET
-        (first_name, last_name, role) = ($1, $2, $3)
+        (profile_image, first_name, last_name, role) = ($1, $2, $3)
         WHERE id = $4;"
-        values = [@first_name, @last_name, @role, @id]
+        values = [@profile_image @first_name, @last_name, @role, @id]
         SqlRunner.run(sql, values)
     end
 
