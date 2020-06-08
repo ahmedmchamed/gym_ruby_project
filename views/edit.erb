@@ -1,6 +1,6 @@
 <p>Edit your details below</p>
 <hr>
-<form method="post" action="/edit">
+<form method="post" action="/edit/<%=@find_member.id()%>">
     <div class="member-edit-form">
         <label for="edit-first-name">First name</label>
         <input type="text" id="edit-first-name" name="first_name" value=<%=@find_member.first_name()%>>

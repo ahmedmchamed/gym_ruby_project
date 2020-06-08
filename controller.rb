@@ -54,6 +54,7 @@ post('/register') do
     erb(:member_registration_success)
 end
 
-post('/edit') do
-
+post('/edit/:id') do
+    member = Member.new(params)
+    member.update_member()
 end
