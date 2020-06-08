@@ -77,7 +77,7 @@ post('/book/:gymclass_id/:staff_id') do
     params['member_id'] = member_login['member_details'].id()
     params['membership_id'] = member_login['membership_details'].id()
     params['dates_id'] = new_date.id()
-    params['capacity'] = 9
+    params['capacity'] = 9 #NOTE:this needs to be removed
     new_booking = Booking.new(params)
     new_booking.save()
 end
