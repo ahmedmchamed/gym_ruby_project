@@ -2,6 +2,8 @@
     <div class="gallery-row">
         <figure class="gallery-column">
             <img src=<%= gymclass.url %> class="gallery-image" />
+            <p>There are <%=gymclass.find_capacity%> spaces left</p>
+            <a href="/book/"<%=gymclass.id()%>"><button>Book a space</button></a> 
         </figure>
     </div>
 <% end %>
