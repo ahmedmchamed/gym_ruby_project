@@ -13,8 +13,7 @@ class ClassDate
             options['year'].to_i(),
             options['month'].to_i(),
             options['day'].to_i(),
-            options['hour'].to_i(),
-            options['minute'].to_i()
+            options['hour'].to_i()
         )
     end
 

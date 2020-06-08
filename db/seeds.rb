@@ -85,8 +85,7 @@ classtime1 = ClassDate.new({
     'year' => 2020, 
     'month' => 11,
     'day' => 3,
-    'hour' => 10,
-    'minute' => 0
+    'hour' => 10
 })
 
 classtime1.save()

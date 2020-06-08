@@ -1,56 +1,75 @@
 #flex > div.topnav {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    font-family: sans-serif;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: sans-serif;
 }
 
 div.staff-gallery > p {
-    display: flex;
+  display: flex;
 }
 
 #homepage > div.homepage-link {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .about_us_header {
-    display: flexbox;
-    justify-content: left;
-    align-items: flex-start;
+  display: flexbox;
+  justify-content: left;
+  align-items: flex-start;
 }
 
 .gallery-row {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .topnav {
-    background-color: white;
-    overflow: hidden;
-  }
+  background-color: white;
+  overflow: hidden;
+}
   
 .topnav a {
-    float: left;
-    display: block;
-    color: #121212;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    border-bottom: 10px solid transparent;
-  }
+  float: left;
+  display: block;
+  color: #121212;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  border-bottom: 10px solid transparent;
+}
   
 .topnav a:hover {
-    border-bottom: 10px solid rgb(243, 17, 96);
-  }
+  border-bottom: 10px solid rgb(243, 17, 96);
+}
   
 .topnav a.active {
-    border-bottom: 10px solid rgb(243, 17, 96);
-  }
+  border-bottom: 10px solid rgb(243, 17, 96);
+}
 
-  label {
+label {
     display: block;
-  }
+}
+.homepage-link img{
+  border:0;
+}
+img {
+  border: 2px solid #555;
+}
+
+label { 
+  display:block;
+  margin:10px;
+  width:120px;
+  overflow:auto;
+  font-family:sans-serif;
+  font-size:15px;
+  color:#444;
+  text-shadow:0 0 2px #ddd;
+  padding:10px 10px 10px 0;
+}
+
