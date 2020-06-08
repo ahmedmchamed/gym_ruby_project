@@ -6,7 +6,7 @@ require_relative('../db/sql_runner')
 
 class GymClass
 
-    attr_accessor :name, :url, :duration, :intensity, :workout, :price
+    attr_accessor :name, :url, :duration, :capacity, :intensity, :workout, :price
     attr_reader :id
    
     def initialize(options)
@@ -14,6 +14,7 @@ class GymClass
         @url = options['url']
         @name = options['name']
         @duration = options['duration'].to_i() #in minutes
+        @capacity = options['capacity'].to_i()
         @intensity = options['intensity']
         @workout = options['workout']
         @price = options['price'].to_i()
@@ -21,9 +22,9 @@ class GymClass
 
     def save()
         sql = "INSERT into gymclasses
-        (name, url, duration, intensity, workout, price)
-        VALUES ($1, $2, $3, $4, $5, $6) RETURNING id;"
-        values = [@name, @url, @duration, @intensity, @workout, @price]
+        (name, url, duration, capacity, intensity, workout, price)
+        VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id;"
+        values = [@name, @url, @duration, @capacity, @intensity, @workout, @price]
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
     end
 
@@ -37,13 +38,17 @@ class GymClass
         return ClassDate.find_class_time_by_id(date_id)
     end
 
-    def find_capacity()
-        sql = "SELECT bookings.* FROM bookings
-        WHERE bookings.gymclass_id = $1;"
-        values = [@id]
-        booking_hash_result = SqlRunner.run(sql, values)
-        booking_array_result = Booking.map_booking_data(booking_hash_result)
-        return booking_array_result.first().capacity
+    # def find_capacity()
+    #     sql = "SELECT bookings.* FROM bookings
+    #     WHERE bookings.gymclass_id = $1;"
+    #     values = [@id]
+    #     booking_hash_result = SqlRunner.run(sql, values)
+    #     booking_array_result = Booking.map_booking_data(booking_hash_result)
+    #     return booking_array_result.first().capacity
+    # end
+
+    def update_capacity
+        @capacity -= 1
     end
 
     def members_registered()

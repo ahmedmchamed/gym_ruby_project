@@ -32,6 +32,7 @@ CREATE TABLE gymclasses (
     url VARCHAR(255),
     name VARCHAR(255),
     duration INT,
+    capacity INT,
     intensity VARCHAR(255),
     workout VARCHAR(255),
     price INT
@@ -46,7 +47,6 @@ CREATE TABLE bookings (
     id SERIAL PRIMARY KEY,
     member_id INT REFERENCES members(id),
     staff_id INT REFERENCES staff(id),
-    capacity INT,
     gymclass_id INT REFERENCES gymclasses(id) ON DELETE CASCADE,
     dates_id INT REFERENCES dates(id) ON DELETE CASCADE,
     membership_id INT REFERENCES memberships(id) ON DELETE CASCADE
