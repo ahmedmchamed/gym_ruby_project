@@ -1,5 +1,6 @@
 require_relative('./member')
 require_relative('./staff')
+require_relative('./booking')
 require_relative('../db/sql_runner')
 
 class GymClass
@@ -23,6 +24,15 @@ class GymClass
         VALUES ($1, $2, $3, $4, $5, $6) RETURNING id;"
         values = [@name, @url, @duration, @intensity, @workout, @price]
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
+    end
+
+    def find_capacity()
+        sql = "SELECT bookings.* FROM bookings
+        WHERE bookings.gymclass_id = $1;"
+        values = [@id]
+        booking_hash_result = SqlRunner.run(sql, values)
+        booking_array_result = Booking.map_booking_data(booking_hash_result)
+        return booking_array_result.first().capacity
     end
 
     def members_registered()
