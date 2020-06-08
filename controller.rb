@@ -31,6 +31,10 @@ get('/classes') do
     erb(:classes)
 end
 
+get('/book/:id') do
+    @gymclass = GymClass.find_class_by_id(params[:id].to_i())
+end
+
 get('/register') do
     erb(:member_register)
 end

@@ -113,6 +113,28 @@ booking2 = Booking.new({
 
 booking2.save()
 
+booking3 = Booking.new({
+    'member_id' => member1.id(),
+    'staff_id' => staffmember1.id(),
+    'capacity' => 10,
+    'gymclass_id' => gymclass3.id(),
+    'dates_id' => classtime1.id(),
+    'membership_id' => membershiptier1.id()
+})
+
+booking3.save()
+
+booking4 = Booking.new({
+    'member_id' => member1.id(),
+    'staff_id' => staffmember1.id(),
+    'capacity' => 10,
+    'gymclass_id' => gymclass4.id(),
+    'dates_id' => classtime1.id(),
+    'membership_id' => membershiptier1.id()
+})
+
+booking4.save()
+
 binding.pry
 
 nil
