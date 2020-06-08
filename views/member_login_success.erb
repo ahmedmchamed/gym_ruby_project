@@ -1,8 +1,16 @@
 <ul>
     <p>Hi there <%=@member_logged_in['member_details'].first_name %>, here are your membership details</p>
     <li><%=@member_logged_in['membership_details'].type %></li>
+    <li><%=@member_logged_in['membership_details'].status %></li>
+</ul>
+<ul>
+    <p>If you have booked any classes, they will appear below</p>
+    <% @member_logged_in['member_details'].member_classes().each do |gymclass| %>
+        <li>You're booked for <%=gymclass.name()%> which is <%=gymclass.duration()%> minutes long</li>
+    <%end%>
 </ul>
 
 <ul>
-    
+    <p>Click the link below if you would like to modify your details</p>
+    <a href="/edit/<%=@member_logged_in['member_details'].id()%>">Edit Member details</a>
 </ul>

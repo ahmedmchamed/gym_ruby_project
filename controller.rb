@@ -35,6 +35,12 @@ get('/register') do
     erb(:member_register)
 end
 
+get('/edit/:id') do
+    @find_member = Member.find_member_by_id(params[:id].to_i())
+    @find_membership_details = Membership.find_membership_by_id(@find_member.membership_id())
+    erb(:edit)
+end
+
 post('/login') do
     @member_logged_in = Member.member_login(params)
     erb(:member_login_success)
@@ -46,4 +52,8 @@ post('/register') do
     params['membership_id'] = new_membership.id()
     new_member = Member.new(params).save()
     erb(:member_registration_success)
+end
+
+post('/edit') do
+
 end

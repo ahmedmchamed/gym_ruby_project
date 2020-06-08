@@ -51,30 +51,6 @@ div.staff-gallery > p {
     border-bottom: 10px solid rgb(243, 17, 96);
   }
 
-  /* form {
-    position : relative;
-    width  : 740px;
-    height : 498px;
-    margin : 0 auto;
-    padding: 1em;
-    box-sizing: border-box;
-    background : #FFF;
-  
-    /* we create our grid */
-    /* display  : grid;
-    grid-gap : 20px;
-    grid-template-columns : repeat(2, 1fr);
-    grid-template-rows    : 10em 1em 1em 1em;
-  } */
-
-/* #member-login-form {
-    display: flex;
-    align-items: center;
-    justify-content: left;
-}
-
-.member-login-form  {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start
-} */
+  label {
+    display: block;
+  }
