@@ -21,6 +21,10 @@ get('/superhappyfungym') do
     erb(:index)
 end
 
+get('/new') do
+    erb(:new_class)
+end
+
 get('/about-us') do
     @all_staff = Staff.find_all_staff()
     erb(:about_us)
@@ -29,6 +33,10 @@ end
 get('/classes') do
     @all_classes = GymClass.find_all_classes()
     erb(:classes)
+end
+
+get('/staff-login') do
+    erb(:staff_login)
 end
 
 get('/book/:id') do
@@ -58,6 +66,11 @@ post('/register') do
     params['membership_id'] = new_membership.id()
     new_member = Member.new(params).save()
     erb(:member_registration_success)
+end
+
+post('/new') do
+    new_class = GymClass.new(params)
+    new_class.save()
 end
 
 post('/edit/:id/:membership_id') do

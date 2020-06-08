@@ -38,15 +38,6 @@ class GymClass
         return ClassDate.find_class_time_by_id(date_id)
     end
 
-    # def find_capacity()
-    #     sql = "SELECT bookings.* FROM bookings
-    #     WHERE bookings.gymclass_id = $1;"
-    #     values = [@id]
-    #     booking_hash_result = SqlRunner.run(sql, values)
-    #     booking_array_result = Booking.map_booking_data(booking_hash_result)
-    #     return booking_array_result.first().capacity
-    # end
-
     def members_registered()
         sql = "SELECT members.* FROM members
         INNER JOIN bookings ON bookings.member_id = members.id

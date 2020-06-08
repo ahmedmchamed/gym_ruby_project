@@ -1,7 +1,7 @@
 <h1 class="about-us_header">Hello and welcome to the Super Happy Fun Gym.</h1>
 <% @all_staff.each do |staff| %>
-    <div class="staff-gallery">
-        <p><img src=<%= staff.profile_image %> class="staff-image" /></p>
-        <p><%= staff.first_name %></p> <p><%= staff.last_name %></p> 
+    <div id="staff-gallery">
+        <img src=<%= staff.profile_image %> height="375" width="350" class="staff-image" />
+        <p><%= staff.first_name %> <%= staff.last_name %></p> 
     </div>
 <% end %>

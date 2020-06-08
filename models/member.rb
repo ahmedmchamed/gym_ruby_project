@@ -1,5 +1,6 @@
 require_relative('./membership')
 require_relative('./gymclass')
+require_relative('./classdate')
 require_relative('../db/sql_runner')
 
 class Member
@@ -36,6 +37,16 @@ class Member
         values = [@id]
         member_classes_hash_result = SqlRunner.run(sql, values)
         return GymClass.map_class_data(member_classes_hash_result)
+    end
+
+    def member_gymclass_date()
+        sql = "SELECT bookings.* FROM bookings
+        WHERE bookings.member_id = $1;"
+        values = [@id]
+        booking_hash_result = SqlRunner.run(sql, values)
+        booking_array_result = Booking.map_booking_data(booking_hash_result)
+        date_id = booking_array_result.first().dates_id()
+        return ClassDate.find_class_time_by_id(date_id)
     end
 
     def membership_information()

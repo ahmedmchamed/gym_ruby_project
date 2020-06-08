@@ -29,13 +29,40 @@ member1 = Member.new({
 member1.save()
 
 staffmember1 = Staff.new({
-    'profile_image' => 'staff1.png',
-    'first_name' => 'Bawbag',
-    'last_name' => 'McNasty',
+    'profile_image' => 'elspeth.jpg',
+    'first_name' => 'Elspeth',
+    'last_name' => 'Richardson',
     'role' => 0
 })
 
 staffmember1.save()
+
+staffmember2 = Staff.new({
+    'profile_image' => 'jake.jpg',
+    'first_name' => 'Jake',
+    'last_name' => 'Sparrow',
+    'role' => 0
+})
+
+staffmember2.save()
+
+staffmember3 = Staff.new({
+    'profile_image' => 'nadine.jpg',
+    'first_name' => 'Nadine',
+    'last_name' => 'Hassanein',
+    'role' => 0
+})
+
+staffmember3.save()
+
+staffmember4 = Staff.new({
+    'profile_image' => 'zack.jpg',
+    'first_name' => 'Zack',
+    'last_name' => 'McJack',
+    'role' => 0
+})
+
+staffmember4.save()
 
 gymclass1 = GymClass.new({
     'name' => 'yoga',
