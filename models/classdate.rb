@@ -37,7 +37,7 @@ class ClassDate
         values = [id]
         time_hash_result = SqlRunner.run(sql, values)
         time_array_result = self.map_time_data(time_hash_result)
-        return Time.parse(time_array_result.first()['time']).strftime("%H:%M " "%d/%m/%y")
+        return Time.parse(time_array_result.first()['time']).strftime("%H:%M on " "%A %d of " "%B %Y")
     end
 
     def self.map_time_data(time_hash_data)

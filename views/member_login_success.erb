@@ -6,7 +6,7 @@
 <ul>
     <p>If you have booked any classes, they will appear below</p>
     <% @member_logged_in['member_details'].member_classes().each do |gymclass| %>
-        <li>You're booked for <%=gymclass.name()%> which is <%=gymclass.duration()%> minutes long</li>
+        <li>You're booked at <%=gymclass.find_gymclass_date()%> for <%=gymclass.name()%> which is <%=gymclass.duration()%> minutes long</li>
     <%end%>
 </ul>
 
