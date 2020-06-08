@@ -22,6 +22,12 @@ class Staff
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
     end
 
+    # def self.staff_login(parameters)
+    #     sql_login = "SELECT * FROM staff WHERE first_name IN ($1)
+    #     AND last_name IN ($2) AND role in ($3);"
+    #     values_login = [parameters['first_name'], parameters['last_name'], parameters['role'].to_i()]
+    # end
+
     def staff_classes()
         sql = "SELECT gymclasses.* FROM gymclasses
         INNER JOIN bookings ON bookings.gymclass_id = gymclasses.id

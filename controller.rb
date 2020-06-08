@@ -41,7 +41,7 @@ end
 
 get('/book/:id') do
     @gymclass = GymClass.find_class_by_id(params[:id].to_i())
-    @staff_for_class = @gymclass.staff_registered()
+    @all_staff = Staff.find_all_staff()
     erb(:book_class)
 end
 
