@@ -66,6 +66,7 @@ post('/edit/:id/:membership_id') do
 end
 
 post('/book/:gymclass_id/:staff_id') do
+
     member_login = Member.member_login(params)
     staff_member = Staff.find_staff_by_id(params[:staff_id])
     gym_class = GymClass.find_class_by_id(params[:gymclass_id])
@@ -73,11 +74,16 @@ post('/book/:gymclass_id/:staff_id') do
     params['year'] = params['date'][0..3]
     params['month'] = params['date'][5..6]
     params['day'] = params['date'][8..9]
-    new_date = ClassDate.new(params)
-    new_date.save()
+    new_gymclass_date = ClassDate.new(params)
+    new_gymclass_date.save()
+
     params['member_id'] = member_login['member_details'].id()
     params['membership_id'] = member_login['membership_details'].id()
-    params['dates_id'] = new_date.id()
+    params['dates_id'] = new_gymclass_date.id()
     new_booking = Booking.new(params)
     new_booking.save()
+
+    gym_class.update_capacity() #this method needs worked out.
+    gym_class.update_class()
+    erb(:class_booked)
 end

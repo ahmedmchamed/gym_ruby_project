@@ -47,10 +47,6 @@ class GymClass
     #     return booking_array_result.first().capacity
     # end
 
-    def update_capacity
-        @capacity -= 1
-    end
-
     def members_registered()
         sql = "SELECT members.* FROM members
         INNER JOIN bookings ON bookings.member_id = members.id
@@ -58,6 +54,10 @@ class GymClass
         values = [@id]
         members_hash_result = SqlRunner.run(sql, values)
         return members_array_result = Member.map_member_data(members_hash_result)
+    end
+
+    def update_capacity
+        @capacity -= members_registered.size()
     end
 
     def staff_registered()
@@ -72,9 +72,9 @@ class GymClass
 
     def update_class()
         sql = "UPDATE gymclasses SET
-        (name, url, duration, intensity, workout, price) = ($1, $2, $3, $4, $5, $6)
-        WHERE id = $7"
-        values = [@name, @url, @duration, @intensity, @workout, @price, @id]
+        (name, url, duration, capacity, intensity, workout, price) = ($1, $2, $3, $4, $5, $6, $7)
+        WHERE id = $8"
+        values = [@name, @url, @duration, @capacity, @intensity, @workout, @price, @id]
         SqlRunner.run(sql, values)
     end
 
