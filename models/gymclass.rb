@@ -61,7 +61,8 @@ class GymClass
         WHERE bookings.gymclass_id = $1;"
         values = [@id]
         staff_hash_result = SqlRunner.run(sql, values)
-        return staff_array_result = Staff.map_staff_data(staff_hash_result)
+        staff_array_result = Staff.map_staff_data(staff_hash_result)
+        return staff_array_result.first()
     end
 
     def update_class()

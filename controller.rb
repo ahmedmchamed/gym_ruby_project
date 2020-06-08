@@ -64,3 +64,13 @@ post('/edit/:id/:membership_id') do
     member = Member.new(params)
     member.update_member()
 end
+
+post('/book/:id/:staff_id') do
+
+    params['year'] = params['date'][0..3]
+    params['month'] = params['date'][5..6]
+    params['day'] = params['date'][8..9]
+    new_date = ClassDate.new(params)
+    new_date.save()
+    # new_date = ClassDate.new()
+end
