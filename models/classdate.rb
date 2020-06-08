@@ -1,4 +1,5 @@
 require('time')
+require('pry')
 require_relative('../db/sql_runner')
 
 class ClassDate
@@ -9,11 +10,11 @@ class ClassDate
     def initialize(options)
         @id = options['id'].to_i() if options['id']
         @time = Time.new(
-            options['year'].to_int(),
-            options['month'].to_int(),
-            options['day'].to_int(),
-            options['hour'].to_int(),
-            options['minute'].to_int()
+            options['year'].to_i(),
+            options['month'].to_i(),
+            options['day'].to_i(),
+            options['hour'].to_i(),
+            options['minute'].to_i()
         )
     end
 
@@ -31,16 +32,16 @@ class ClassDate
         SqlRunner.run(sql, values)
     end
 
-    def find_class_time_by_id(id)
+    def self.find_class_time_by_id(id)
         sql = "SELECT * FROM dates WHERE id = $1;"
         values = [id]
         time_hash_result = SqlRunner.run(sql, values)
         time_array_result = self.map_time_data(time_hash_result)
-        return time_array_result.first()
+        return Time.parse(time_array_result.first()['time']).strftime("%H:%M " "%d/%m/%y")
     end
 
     def self.map_time_data(time_hash_data)
-        return time_hash_data.map { |time| ClassDate.new(time) }
+        return time_hash_data.map { |time| time }
     end
 
 end

@@ -2,7 +2,7 @@ require_relative('../db/sql_runner')
 
 class Booking
 
-    attr_accessor :member_id, :staff_id, :gymclass_id, :capacity, :membership_id
+    attr_accessor :member_id, :staff_id, :capacity, :gymclass_id, :dates_id, :membership_id
     attr_reader :id
 
     def initialize(options)

@@ -86,8 +86,7 @@ classtime1 = ClassDate.new({
     'month' => 11,
     'day' => 3,
     'hour' => 10,
-    'minute' => 0,
-    'class_id' => gymclass1.id()
+    'minute' => 0
 })
 
 classtime1.save()
