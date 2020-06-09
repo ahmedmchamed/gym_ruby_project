@@ -88,14 +88,15 @@ label {
   padding:10px 10px 10px 0;
 }
 
-button {
+.gallery-column > a > button {
   display: block;
   width: 100%;
   border: none;
-  background-color: #4CAF50;
+  background-color: #66ff99;
   padding: 14px 28px;
   font-size: 16px;
   cursor: pointer;
+  align-items: center;
   text-align: center;
 }
 

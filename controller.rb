@@ -25,6 +25,16 @@ get('/new') do
     erb(:new_class)
 end
 
+get('/edit-class-list') do
+    @all_classes = GymClass.find_all_classes()
+    erb(:edit_class_list) #REMEMBER TO FINISH THIS - REMOVE COMMENT WHEN DONE
+end
+
+get('/edit-class/:id') do
+    @gymclass = GymClass.find_class_by_id(params[:id].to_i())
+    erb(:edit_class)
+end
+
 get('/about-us') do
     @all_staff = Staff.find_all_staff()
     erb(:about_us)

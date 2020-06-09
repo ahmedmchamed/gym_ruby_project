@@ -1,5 +1,8 @@
 <p>Hi <%=@staff_logged_in.first_name%> &#128578 </p>
-<p>Here's what's happening today...</p>
+<p>If you want to create a new class, or edit one, follow the links below</p>
+<p><a href="/new"><button>Create a new class</button></a></p> 
+<p><a href="/edit-class-list"><button>Edit an existing class</button></a></p>
+<p>Otherwise, here's what's happening today...</p>
 <hr>
 <p>You and your colleagues are registered in the following classes</p>
 <% @all_staff.each do |staff| %>
@@ -27,3 +30,4 @@
             <%end%>
     <%end%>
 <%end%>
+<hr>
