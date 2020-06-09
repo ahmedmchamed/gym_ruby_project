@@ -28,7 +28,7 @@ class Staff
         WHERE bookings.staff_id = $1;"
         values = [@id]
         staff_classes_hash_result = SqlRunner.run(sql, values)
-        return GymClass.map_class_data(staff_classes_hash_result)
+        return GymClass.map_class_data(staff_classes_hash_result).first()
     end
 
     def self.staff_login(parameters)

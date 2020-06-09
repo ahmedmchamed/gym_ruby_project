@@ -1,2 +1,15 @@
 <p>Hi <%=@staff_logged_in.first_name%> &#128578 </p>
 <p>Here's what's happening today...</p>
+<hr>
+<p>You and your colleagues are registered in the following classes</p>
+<% @all_staff.each do |staff| %>
+    <% if staff.first_name() == @staff_logged_in.first_name %>
+        <p>
+            You are booked to instruct the
+        </p>
+    <% else %>
+        <p>
+            <%=staff.first_name()%> is booked to instruct the
+        </p>
+    <%end%>
+<%end%>
