@@ -21,13 +21,13 @@ get('/superhappyfungym') do
     erb(:index)
 end
 
-get('/new') do
+get('/new-class') do
     erb(:new_class)
 end
 
 get('/edit-class-list') do
     @all_classes = GymClass.find_all_classes()
-    erb(:edit_class_list) #REMEMBER TO FINISH THIS - REMOVE COMMENT WHEN DONE
+    erb(:edit_class_list)
 end
 
 get('/edit-class/:id') do
@@ -43,6 +43,11 @@ end
 get('/classes') do
     @all_classes = GymClass.find_all_classes()
     erb(:classes)
+end
+
+get('/class-member-details/:id') do
+    @gymclass = GymClass.find_class_by_id(params[:id])
+    erb(:class_member_details)
 end
 
 get('/staff-login') do
@@ -86,7 +91,7 @@ post('/register') do
     erb(:member_registration_success)
 end
 
-post('/new') do
+post('/new-class') do
     new_class = GymClass.new(params)
     new_class.save()
 end

@@ -1,0 +1,6 @@
+<p>This class has the following members booked</p>
+<%@gymclass.members_registered().each do |member|%>
+    <ul>
+        <li><%=member.first_name()%> <%=member.last_name()%></li>
+    </ul>
+<%end%>

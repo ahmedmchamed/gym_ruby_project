@@ -1,6 +1,6 @@
 <p>Hi <%=@staff_logged_in.first_name%> &#128578 </p>
 <p>If you want to create a new class, or edit one, follow the links below</p>
-<p><a href="/new"><button>Create a new class</button></a></p> 
+<p><a href="/new-class"><button>Create a new class</button></a></p> 
 <p><a href="/edit-class-list"><button>Edit an existing class</button></a></p>
 <p>Otherwise, here's what's happening today...</p>
 <hr>
@@ -31,3 +31,8 @@
     <%end%>
 <%end%>
 <hr>
+<p>If you want to check how many members are booked in each class, click a class link below</p>
+<%@all_gym_classes.each do |gymclass| %>
+    <p>Check the status of the <%=gymclass.name()%> class</p>
+    <a href="/class-member-details/<%=gymclass.id()%>"><button><%=gymclass.name()%> class</button></a>
+<% end %>
