@@ -35,7 +35,7 @@ class Staff
         sql_login = "SELECT * FROM staff WHERE first_name IN ($1)
         AND last_name IN ($2) AND role in ($3);"
         values_login = [parameters['first_name'], parameters['last_name'], parameters['role'].to_i()]
-        staff_login_hash_result = SqlRunner.run(sql, values)
+        staff_login_hash_result = SqlRunner.run(sql_login, values_login)
         staff_login_array_result = self.map_staff_data(staff_login_hash_result)
         logged_in_staff = staff_login_array_result.first()
         return logged_in_staff

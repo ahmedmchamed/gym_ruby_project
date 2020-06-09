@@ -36,9 +36,6 @@ get('/classes') do
 end
 
 get('/staff-login') do
-    @all_gym_classes = GymClass.find_all_classes()
-    @all_staff = Staff.find_all_staff()
-    @all_members = Member.find_all_members()
     erb(:staff_login)
 end
 
@@ -61,6 +58,14 @@ end
 post('/login') do
     @member_logged_in = Member.member_login(params)
     erb(:member_login_success)
+end
+
+post('/staff-login') do
+    @staff_logged_in = Staff.staff_login(params)
+    @all_gym_classes = GymClass.find_all_classes()
+    @all_staff = Staff.find_all_staff()
+    @all_members = Member.find_all_members()
+    erb(:staff_login_success)
 end
 
 post('/register') do
