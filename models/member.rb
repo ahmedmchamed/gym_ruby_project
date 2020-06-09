@@ -72,10 +72,10 @@ class Member
         values_login = [parameters['first_name'], parameters['last_name'], parameters['age'].to_i()]
         member_login_hash_result = SqlRunner.run(sql_login, values_login)
         member_login_array_result = self.map_member_data(member_login_hash_result)
-        member_object = member_login_array_result.first()
-        membership_info = Membership.find_membership_by_id(member_object.membership_id())
+        logged_in_member = member_login_array_result.first()
+        membership_info = Membership.find_membership_by_id(logged_in_member.membership_id())
         return member_hash = {
-            'member_details' => member_object,
+            'member_details' => logged_in_member,
             'membership_details' => membership_info
         }
     end

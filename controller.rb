@@ -36,6 +36,9 @@ get('/classes') do
 end
 
 get('/staff-login') do
+    @all_gym_classes = GymClass.find_all_classes()
+    @all_staff = Staff.find_all_staff()
+    @all_members = Member.find_all_members()
     erb(:staff_login)
 end
 

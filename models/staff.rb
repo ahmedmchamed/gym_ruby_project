@@ -22,12 +22,6 @@ class Staff
         @id = SqlRunner.run(sql, values)[0]['id'].to_i()
     end
 
-    # def self.staff_login(parameters)
-    #     sql_login = "SELECT * FROM staff WHERE first_name IN ($1)
-    #     AND last_name IN ($2) AND role in ($3);"
-    #     values_login = [parameters['first_name'], parameters['last_name'], parameters['role'].to_i()]
-    # end
-
     def staff_classes()
         sql = "SELECT gymclasses.* FROM gymclasses
         INNER JOIN bookings ON bookings.gymclass_id = gymclasses.id
@@ -35,6 +29,16 @@ class Staff
         values = [@id]
         staff_classes_hash_result = SqlRunner.run(sql, values)
         return GymClass.map_class_data(staff_classes_hash_result)
+    end
+
+    def self.staff_login(parameters)
+        sql_login = "SELECT * FROM staff WHERE first_name IN ($1)
+        AND last_name IN ($2) AND role in ($3);"
+        values_login = [parameters['first_name'], parameters['last_name'], parameters['role'].to_i()]
+        staff_login_hash_result = SqlRunner.run(sql, values)
+        staff_login_array_result = self.map_staff_data(staff_login_hash_result)
+        logged_in_staff = staff_login_array_result.first()
+        return logged_in_staff
     end
 
     def update_staff_member()
