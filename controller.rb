@@ -96,6 +96,12 @@ post('/edit/:id/:membership_id') do
     member.update_member()
 end
 
+post('/edit-class/:id') do
+    @gymclass = GymClass.find_class_by_id(params[:id])
+    @gymclass_new = GymClass.new(params)
+    @gymclass_new.update_class()
+end
+
 post('/book/:gymclass_id/:staff_id') do
 
     member_login = Member.member_login(params)
