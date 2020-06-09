@@ -25,7 +25,7 @@
                 </p>
             <% else %>
                 <p>
-                    <%=staff.first_name()%> is booked to instruct the
+                    <%=staff.first_name()%> is booked to instruct the <%=staff.staff_classes().name()%> class at <%=staff.staff_classes().find_gymclass_date%>
                 </p>
             <%end%>
     <%end%>
