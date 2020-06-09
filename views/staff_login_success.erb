@@ -4,12 +4,26 @@
 <p>You and your colleagues are registered in the following classes</p>
 <% @all_staff.each do |staff| %>
     <% if staff.first_name() == @staff_logged_in.first_name %>
-        <p>
-            You are booked to instruct the
-        </p>
+            <% case staff.staff_classes() 
+            when nil %>
+                <p>
+                    You are not booked to instruct any upcoming classes.
+                </p>
+            <% else %>
+                <p>
+                    You are booked to instruct the <%=staff.staff_classes().name()%> class at <%=staff.staff_classes().find_gymclass_date%>
+                </p>
+            <%end%>
     <% else %>
-        <p>
-            <%=staff.first_name()%> is booked to instruct the
-        </p>
+            <% case staff.staff_classes() 
+            when nil %>
+                <p>
+                    <%=staff.first_name()%> is not booked to instruct any upcoming classes.
+                </p>
+            <% else %>
+                <p>
+                    <%=staff.first_name()%> is booked to instruct the
+                </p>
+            <%end%>
     <%end%>
 <%end%>

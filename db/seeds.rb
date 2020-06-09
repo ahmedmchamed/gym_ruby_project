@@ -121,15 +121,15 @@ classtime1 = ClassDate.new({
 
 classtime1.save()
 
-# booking1 = Booking.new({
-#     'member_id' => member1.id(),
-#     'staff_id' => staffmember1.id(),
-#     'gymclass_id' => gymclass1.id(),
-#     'dates_id' => classtime1.id(),
-#     'membership_id' => membershiptier1.id()
-# })
+booking1 = Booking.new({
+    'member_id' => member1.id(),
+    'staff_id' => staffmember1.id(),
+    'gymclass_id' => gymclass1.id(),
+    'dates_id' => classtime1.id(),
+    'membership_id' => membershiptier1.id()
+})
 
-# booking1.save()
+booking1.save()
 
 # booking2 = Booking.new({
 #     'member_id' => member1.id(),
