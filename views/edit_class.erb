@@ -1,0 +1,33 @@
+<form method="post" action="/edit-class/<%=@gymclass.id()%>">
+    <div class="edit-class-form">
+        <label for="enter-new-class-url">Class profile photo link</label>
+        <input type="text" id="enter-new-class-url" name="url" value="@gymclass.url()">
+    </div>
+    <div class="edit-class-form">
+        <label for="enter-new-class-name">Class name</label>
+        <input type="text" id="enter-new-class-name" name="name" value="@gymclass.name()">
+    </div>
+    <div class="edit-class-form">
+        <label for="enter-new-class-duration">Class duration (minutes)</label>
+        <input type="number" id="enter-new-class-duration" name="duration" value="@gymclass.duration()">
+    </div>
+    <div class="edit-class-form">
+        <label for="enter-new-class-capacity">Class capacity</label>
+        <input type="number" id="enter-new-class-capacity" name="capacity" value="@gymclass.capacity()">
+    </div>
+    <div class="edit-class-form">
+        <label for="enter-new-class-intensity">Class intensity</label>
+        <input type="text" id="enter-new-class-intensity" name="intensity" value="@gymclass.intensity()">
+    </div>
+    <div class="edit-class-form">
+        <label for="enter-new-class-workout">Class workout</label>
+        <input type="text" id="enter-new-class-workout" name="workout" value="@gymclass.workout()">
+    </div>
+    <div class="edit-class-form">
+        <label for="enter-new-class-price">Class booking fee</label>
+        <input type="number" id="enter-new-class-price" name="price" value="@gymclass.price()">
+    </div>
+    <div class="edit-class-form">
+        <input type="submit" value="UPDATE CLASS">
+    </div>
+</form>
