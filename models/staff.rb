@@ -31,6 +31,14 @@ class Staff
         return GymClass.map_class_data(staff_classes_hash_result).first()
     end
 
+    def update_staff_member()
+        sql = "UPDATE staff SET
+        (profile_image, first_name, last_name, role) = ($1, $2, $3)
+        WHERE id = $4;"
+        values = [@profile_image, @first_name, @last_name, @role, @id]
+        SqlRunner.run(sql, values)
+    end
+
     def self.staff_login(parameters)
         sql_login = "SELECT * FROM staff WHERE first_name IN ($1)
         AND last_name IN ($2) AND role in ($3);"
@@ -39,14 +47,6 @@ class Staff
         staff_login_array_result = self.map_staff_data(staff_login_hash_result)
         logged_in_staff = staff_login_array_result.first()
         return logged_in_staff
-    end
-
-    def update_staff_member()
-        sql = "UPDATE staff SET
-        (profile_image, first_name, last_name, role) = ($1, $2, $3)
-        WHERE id = $4;"
-        values = [@profile_image, @first_name, @last_name, @role, @id]
-        SqlRunner.run(sql, values)
     end
 
     def self.find_staff_by_id(id)
