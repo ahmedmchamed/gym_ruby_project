@@ -5,31 +5,79 @@
   font-family: sans-serif;
 }
 
+hr {
+  border: 8px solid #66BB6A;
+  border-radius: 5px;
+}
+
 h1 {
   display: flex;
   justify-content: space-evenly;
-  align-items: left;
+  align-items: center;
   font-family: sans-serif;
 }
-
-/* div.staff-gallery > p {
-  display: flex;
-} */
 
 #homepage > div.homepage-link {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  transform: rotate(-4deg);
 }
 
-#staff-gallery > img {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+div.gallery-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-left: 180px;
+  padding-top: 50px;
+}
+
+div.gallery-row > .gallery-column > p {
+  font-family: sans-serif;
+  font-size: 17px;
+}
+
+div.staff-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-left: 220px;
+  padding-top: 50px;
+}
+
+div.staff-gallery > .staff-blurb > img {
   border-radius: 50%;
 }
 
-.about_us_header {
+div.staff-gallery > .staff-blurb > p {
+  font-family: sans-serif;
+  padding-left: 110px;
+}
+
+div.member-login-success {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-left: 110px;
+  padding-right: 110px;
+  padding-top: 30px;
+  font-family: sans-serif;
+}
+
+div.staff-login-success {
+  display: grid;
+  padding-left: 110px;
+  padding-right: 110px;
+  padding-top: 30px;
+  font-family: sans-serif;
+}
+
+div.member-registration-success {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-left: 130px;
+  padding-top: 30px;
+  font-family: sans-serif;
+}
+
+.about-us-header {
   display: flexbox;
   justify-content: space-evenly;
   align-items: center;
@@ -70,21 +118,23 @@ h1 {
   justify-content: center;
   align-items: center;
 }
+
 img {
   border: 2px solid #555;
   justify-content: space-evenly;
-  align-items: center;
-}
+  align-items: center; 
+} 
 
 label { 
   display:block;
   margin:10px;
   width:120px;
   overflow:auto;
-  font-family:sans-serif;
+  font-family:;
   font-size:15px;
-  color:#444;
-  text-shadow:0 0 2px #ddd;
+  font-weight: bolder;
+  color:#212121;
+  text-shadow:0 0 0px #212121;
   padding:10px 10px 10px 0;
 }
 
@@ -92,11 +142,192 @@ label {
   display: block;
   width: 100%;
   border: none;
-  background-color: #66ff99;
+  background-color: #66BB6A;
   padding: 14px 28px;
   font-size: 16px;
   cursor: pointer;
   align-items: center;
   text-align: center;
 }
+
+input[type=text], select, textarea{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #66BB6A;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+/* label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+} */ 
+
+div.member-edit-success {
+  display: grid;
+  padding-top: 30px;
+  padding-left: 130px;
+  padding-right: 130px;
+  grid-template-columns: 0.75fr 1.25fr;
+}
+
+div.member-edit-success {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+div.new-class-success {
+  display: grid;
+  padding-top: 30px;
+  padding-left: 130px;
+  padding-right: 130px;
+  grid-template-columns: 0.75fr 1.25fr;
+}
+
+div.new-class-success {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+div.class-edit-success {
+  display: grid;
+  padding-top: 30px;
+  padding-left: 130px;
+  padding-right: 130px;
+  grid-template-columns: 0.75fr 1.25fr;
+}
+
+div.class-edit-success {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+div.class-booking {
+  display: grid;
+  padding-top: 30px;
+  padding-left: 130px;
+  padding-right: 130px;
+  grid-template-columns: 0.75fr 1.25fr;
+}
+
+div.class-book-form {
+  background-color: #e91e63;
+  border: none;
+  color: #66BB6A;
+  font-size: 1.1em;
+  padding: 10px 10px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div.class-booked {
+  display: grid;
+  padding-top: 30px;
+  padding-left: 130px;
+  padding-right: 130px;
+  grid-template-columns: 0.75fr 1.25fr;
+}
+
+div.class-booked {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+div.member-edit {
+  display: grid;
+  padding-top: 30px;
+  padding-left: 130px;
+  padding-right: 130px;
+  font-family: sans-serif;
+  font-size: 18px;
+  grid-template-columns: 0.75fr 1.25fr;
+}
+
+div.member-edit-form {
+  background-color: #e91e63;
+  border: none;
+  color: #212121;
+  font-size: 1.1em;
+  padding: 10px 10px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div.staff-login {
+  display: grid;
+  padding-top: 30px;
+  padding-left: 130px;
+  padding-right: 130px;
+  font-family: sans-serif;
+  font-size: 18px;
+  grid-template-columns: 0.75fr 1.25fr;
+}
+
+div.staff-login-form {
+  background-color: #e91e63;
+  border: none;
+  color: #212121;
+  font-size: 1.1em;
+  padding: 10px 10px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div.member-registration {
+  display: grid;
+  padding-top: 30px;
+  padding-left: 130px;
+  padding-right: 130px;
+  grid-template-columns: 0.75fr 1.25fr;
+}
+
+div.member-register-form {
+  background-color: #e91e63;
+  border: none;
+  color: #66BB6A;
+  font-size: 1em;
+  padding: 10px 10px;
+  text-transform: uppercase;
+  font-weight: normal;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div.member-login-form {
+  background-color: #e91e63;
+  border: none;
+  color: #66BB6A;
+  font-size: 1em;
+  padding: 10px 10px;
+  text-transform: uppercase;
+  font-weight: normal;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div.homepage-blurb {
+  display: grid;
+  padding-top: 30px;
+  padding-left: 130px;
+  padding-right: 130px;
+  grid-template-columns: 1.25fr 0.75fr;
+}
+
+div.homepage-blurb > .homepage-post {
+  grid-column: 1/2;
+  font-family: sans-serif;
+  font-size: 20px;
+}
+
+div.homepage-blurb > .member-login-form {
+  grid-column: 2/3;
+}
+
 

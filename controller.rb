@@ -94,17 +94,20 @@ end
 post('/new-class') do
     new_class = GymClass.new(params)
     new_class.save()
+    erb(:new_class_success)
 end
 
 post('/edit/:id/:membership_id') do
     member = Member.new(params)
     member.update_member()
+    erb(:member_edit_success)
 end
 
 post('/edit-class/:id') do
     # @gymclass = GymClass.find_class_by_id(params[:id])
     @gymclass_new = GymClass.new(params)
     @gymclass_new.update_class()
+    erb(:class_edit_success)
 end
 
 post('/book/:gymclass_id/:staff_id') do

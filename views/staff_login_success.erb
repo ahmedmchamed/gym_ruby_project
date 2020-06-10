@@ -1,3 +1,4 @@
+<div class="staff-login-success">
 <p>Hi <%=@staff_logged_in.first_name%> &#128578 </p>
 <p>If you want to create a new class, or edit one, follow the links below</p>
 <p><a href="/new-class"><button>Create a new class</button></a></p> 
@@ -36,3 +37,4 @@
     <p>Check the status of the <%=gymclass.name()%> class</p>
     <a href="/class-member-details/<%=gymclass.id()%>"><button><%=gymclass.name()%> class</button></a>
 <% end %>
+</div>

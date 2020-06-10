@@ -1,7 +1,10 @@
-<h1 class="about-us_header">Hello and welcome to the Super Happy Fun Gym.</h1>
+<h1 class="about-us-header">Meet our staff</h1>
+<div class="staff-gallery">
 <% @all_staff.each do |staff| %>
-    <div id="staff-gallery">
+    <div class="staff-blurb">
         <img src=<%= staff.profile_image %> height="375" width="350" class="staff-image" />
         <p><%= staff.first_name %> <%= staff.last_name %></p> 
     </div>
 <% end %>
+</div>
+<h1 class="testimonials">Testimonials</h1>

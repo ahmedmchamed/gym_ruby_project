@@ -1,9 +1,11 @@
+<h1>Explore our classes</h1>
+<div class="gallery-row">
 <% @all_classes.each do |gymclass| %>
-    <div class="gallery-row">
         <figure class="gallery-column">
-            <img src=<%= gymclass.url %> class="gallery-image" />
-            <p>There are <%=gymclass.capacity%> spaces left</p>
-            <a href="/book/<%=gymclass.id()%>"><button>Book a space</button></a> 
+            <img src=<%= gymclass.url %> width="350" height="350" />
+            <p><%=gymclass.name().capitalize()%></p>
+            <p>There are <%=gymclass.capacity%> spaces left in this class</p>
+            <p><a href="/book/<%=gymclass.id()%>"><button>Book a place in <%=gymclass.name()%></button></a></p>
         </figure>
-    </div>
 <% end %>
+</div>

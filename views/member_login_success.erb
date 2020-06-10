@@ -1,3 +1,4 @@
+<div class="member-login-success">
 <ul>
     <p>Hi there <%=@member_logged_in['member_details'].first_name %>, here are your membership details</p>
     <li><%=@member_logged_in['membership_details'].type %></li>
@@ -12,5 +13,6 @@
 
 <ul>
     <p>Click the link below if you would like to modify your details</p>
-    <a href="/edit/<%=@member_logged_in['member_details'].id()%>">Edit Member details</a>
+    <a href="/edit/<%=@member_logged_in['member_details'].id()%>"><button>Edit Member details</button></a>
 </ul>
+</div>

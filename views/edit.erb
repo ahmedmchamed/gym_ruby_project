@@ -1,26 +1,26 @@
-<p>Edit your details below</p>
+<h1>Edit your details below</h1>
 <hr>
+<div class="member-edit">
+<div class="member-edit-form">
 <form method="post" action="/edit/<%=@find_member.id()%>/<%=@find_membership_details.id()%>">
-    <div class="member-edit-form">
+    
         <label for="edit-first-name">First name</label>
         <input type="text" id="edit-first-name" name="first_name" value=<%=@find_member.first_name()%>>
-    </div>
-    <div class="member-edit_form">
+    
         <label for="edit-last-name">Last name</label>
         <input type="text" id="edit-last-name" name="last_name" value=<%=@find_member.last_name%>>
-    </div>
-    <div class="member-edit-form">
+    
         <label for="edit-age">Age</label>
         <input type="number" id="edit-age" name="age" value=<%=@find_member.age()%>>
-    </div>
-    <div class="member-edit-form">
+    
         <label for="edit-membership-tier">Membership tier</label>
         <select id="edit-membership-tier" name="type" value=<%=@find_membership_details.id()%>>
             <option value="Premium">Premium</option>
             <option value="Standard">Standard</option>
         </select>
-    </div>
-    <div class="member-edit-form">
+    
         <input type="submit" value="UPDATE"/>
-    </div>
+    
 </form>
+</div>
+</div>
