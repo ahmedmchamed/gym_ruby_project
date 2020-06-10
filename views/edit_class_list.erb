@@ -1,4 +1,6 @@
-<p>Here is a list of all upcoming classes that you can edit</p>
-<% @all_classes.each do |gymclass| %>
-    <p>Edit the <%=gymclass.name%> class </p> <a href="/edit-class/<%=gymclass.id()%>"><button>Edit <%=gymclass.name()%></button></a>
-<% end %>
+<div class="list-of-classes-to-edit">
+    <p>Here is a list of all upcoming classes that you can edit</p>
+    <% @all_classes.each do |gymclass| %>
+        <p>Edit the <%=gymclass.name%> class <a href="/edit-class/<%=gymclass.id()%>"><button>Edit <%=gymclass.name()%></button></a></p>
+    <% end %>
+</div>

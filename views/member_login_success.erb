@@ -1,28 +1,28 @@
 <div class="member-login-success">
-<ul>
-    <p>Hi there <%=@member_logged_in['member_details'].first_name %>, here are your membership details</p>
-    <% if @member_logged_in['membership_details'].type == "Premium" %>
-        <li><%=@member_logged_in['membership_details'].type %></li>
-        <p>You can only book classes at any time of the day as part of your membership package.</p>
-    <% else %>
-        <li><%=@member_logged_in['membership_details'].type %></li>
-        <p>You can only book classes during off-peak hours as part of your membership package.</p>
-    <% end %>
-    <li><%=@member_logged_in['membership_details'].status %></li>
-</ul>
-<ul>
-    <p>If you have booked any classes, they will appear below.</p>
-    <% if @member_logged_in['member_details'].member_classes().size() == 0 %>
-        <p>No classes booked.</p>
-    <%else%>
-        <% @member_logged_in['member_details'].member_classes().each do |gymclass| %>
-            <li>You're booked at <%=gymclass.find_gymclass_date()%> for <%=gymclass.name()%> which is <%=gymclass.duration()%> minutes long</li>
+    <ul>
+        <p>Hi there <%=@member_logged_in['member_details'].first_name %>, here are your membership details</p>
+        <% if @member_logged_in['membership_details'].type == "Premium" %>
+            <li><%=@member_logged_in['membership_details'].type %></li>
+            <p>You can only book classes at any time of the day as part of your membership package.</p>
+        <% else %>
+            <li><%=@member_logged_in['membership_details'].type %></li>
+            <p>You can only book classes during off-peak hours as part of your membership package.</p>
+        <% end %>
+            <li><%=@member_logged_in['membership_details'].status %></li>
+    </ul>
+    <ul>
+        <p>If you have booked any classes, they will appear below.</p>
+        <% if @member_logged_in['member_details'].member_classes().size() == 0 %>
+            <p>No classes booked.</p>
+        <%else%>
+            <% @member_logged_in['member_details'].member_classes().each do |gymclass| %>
+                <li>You're booked at <%=gymclass.find_gymclass_date()%> for <%=gymclass.name()%> which is <%=gymclass.duration()%> minutes long</li>
+            <%end%>
         <%end%>
-    <%end%>
-</ul>
+    </ul>
 
-<ul>
-    <p>Click the link below if you would like to modify your details</p>
-    <a href="/edit/<%=@member_logged_in['member_details'].id()%>"><button>Edit Member details</button></a>
-</ul>
+    <ul>
+        <p>Click the link below if you would like to modify your details</p>
+        <a href="/edit/<%=@member_logged_in['member_details'].id()%>"><button>Edit Member details</button></a>
+    </ul>
 </div>

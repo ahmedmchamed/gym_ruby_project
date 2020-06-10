@@ -1,41 +1,41 @@
 <h1><%=@staff_logged_in.first_name%>'s dashboard</h1>
 <div class="staff-login-success">
-<p>Hi <%=@staff_logged_in.first_name%> &#128578 </p>
-<p>If you want to create a new class, or edit one, follow the links below</p>
-<p><a href="/new-class"><button>Create a new class</button></a></p> 
-<p><a href="/edit-class-list"><button>Edit an existing class</button></a></p>
-<p>Otherwise, here's what's happening today...</p>
-<hr>
-<p>You and your colleagues are registered in the following classes</p>
-<% @all_staff.each do |staff| %>
-    <% if staff.first_name() == @staff_logged_in.first_name %>
-            <% case staff.staff_classes() 
-            when nil %>
-                <p>
-                    You are not booked to instruct any upcoming classes.
-                </p>
-            <% else %>
-                <p>
-                    You are booked to instruct the <%=staff.staff_classes().name()%> class at <%=staff.staff_classes().find_gymclass_date%>
-                </p>
-            <%end%>
-    <% else %>
-            <% case staff.staff_classes() 
-            when nil %>
-                <p>
-                    <%=staff.first_name()%> is not booked to instruct any upcoming classes.
-                </p>
-            <% else %>
-                <p>
-                    <%=staff.first_name()%> is booked to instruct the <%=staff.staff_classes().name()%> class at <%=staff.staff_classes().find_gymclass_date%>
-                </p>
-            <%end%>
+    <p>Hi <%=@staff_logged_in.first_name%> &#128578 </p>
+    <p>If you want to create a new class, or edit one, follow the links below</p>
+    <p><a href="/new-class"><button>Create a new class</button></a></p> 
+    <p><a href="/edit-class-list"><button>Edit an existing class</button></a></p>
+    <p>Otherwise, here's what's happening today...</p>
+    <hr>
+    <p>You and your colleagues are registered in the following classes</p>
+    <% @all_staff.each do |staff| %>
+        <% if staff.first_name() == @staff_logged_in.first_name %>
+                <% case staff.staff_classes() 
+                when nil %>
+                    <p>
+                        You are not booked to instruct any upcoming classes.
+                    </p>
+                <% else %>
+                    <p>
+                        You are booked to instruct the <%=staff.staff_classes().name()%> class at <%=staff.staff_classes().find_gymclass_date%>
+                    </p>
+                <%end%>
+        <% else %>
+                <% case staff.staff_classes() 
+                when nil %>
+                    <p>
+                        <%=staff.first_name()%> is not booked to instruct any upcoming classes.
+                    </p>
+                <% else %>
+                    <p>
+                        <%=staff.first_name()%> is booked to instruct the <%=staff.staff_classes().name()%> class at <%=staff.staff_classes().find_gymclass_date%>
+                    </p>
+                <%end%>
+        <%end%>
     <%end%>
-<%end%>
-<hr>
-<p>If you want to check how many members are booked in each class, click a class link below</p>
-<%@all_gym_classes.each do |gymclass| %>
-    <p>Check the status of the <%=gymclass.name()%> class</p>
-    <a href="/class-member-details/<%=gymclass.id()%>"><button><%=gymclass.name()%> class</button></a>
-<% end %>
+    <hr>
+    <p>If you want to check how many members are booked in each class, click a class link below</p>
+    <%@all_gym_classes.each do |gymclass| %>
+        <p>Check the status of the <%=gymclass.name()%> class</p>
+        <a href="/class-member-details/<%=gymclass.id()%>"><button><%=gymclass.name()%> class</button></a>
+    <% end %>
 </div>

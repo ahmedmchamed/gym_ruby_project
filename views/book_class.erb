@@ -1,30 +1,30 @@
 <h1>Book a class</h1>
 <div class="class-booking">
-<div class="class-book-form">
-<form method="post" action="/book/<%=@gymclass.id()%>/<%=@all_staff.first().id()%>">
+    <div class="class-book-form">
+        <form method="post" action="/book/<%=@gymclass.id()%>/<%=@all_staff.first().id()%>">
     
-        <label for="enter-first-name">First name</label>
-        <input type="text" id="enter-first-name" name="first_name">
+            <label for="enter-first-name">First name</label>
+            <input type="text" id="enter-first-name" name="first_name">
     
-        <label for="enter-last-name">Last name</label>
-        <input type="text" id="enter-last-name" name="last_name">
+            <label for="enter-last-name">Last name</label>
+            <input type="text" id="enter-last-name" name="last_name">
     
-        <label for="enter-age">Age</label>
-        <input type="number" id="enter-age" name="age">
+            <label for="enter-age">Age</label>
+            <input type="number" id="enter-age" name="age">
     
-        <label for="enter-time">Available times</label>
-        <select id="enter-time" name="hour">
-            <option value="10">10:00</option>
-            <option value="11">11:00</option>
-            <option value="12">12:00</option>
-            <option value="13">13:00</option>
-        </select>
+            <label for="enter-time">Available times</label>
+            <select id="enter-time" name="hour">
+                <option value="10">10:00</option>
+                <option value="11">11:00</option>
+                <option value="12">12:00</option>
+                <option value="13">13:00</option>
+            </select>
     
-        <label for="enter-date">Date</label>
-        <input type="date" id="enter-date" name="date">
+            <label for="enter-date">Date</label>
+            <input type="date" id="enter-date" name="date">
     
-        <input type="submit" value="BOOK"/>
+            <input type="submit" value="BOOK"/>
     
-</form>
-</div>
+        </form>
+    </div>
 </div>
