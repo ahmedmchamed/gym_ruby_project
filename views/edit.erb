@@ -14,9 +14,15 @@
         <input type="number" id="edit-age" name="age" value=<%=@find_member.age()%>>
     
         <label for="edit-membership-tier">Membership tier</label>
-        <select id="edit-membership-tier" name="type" value=<%=@find_membership_details.id()%>>
+        <select id="edit-membership-tier" name="type" value=<%=@find_membership_details.type()%>>
             <option value="Premium">Premium</option>
             <option value="Standard">Standard</option>
+        </select>
+
+        <label for="edit-membership-status">Membership status</label>
+        <select id="edit-membership-status" name="status" value=<%=@find_membership_details.status()%>>
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
         </select>
     
         <input type="submit" value="UPDATE"/>

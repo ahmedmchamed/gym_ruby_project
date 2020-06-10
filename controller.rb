@@ -17,6 +17,10 @@ get('/') do
     erb(:main)
 end
 
+get('/facilities') do
+    erb(:facilities)
+end
+
 get('/superhappyfungym') do
     erb(:index)
 end
@@ -100,6 +104,8 @@ end
 post('/edit/:id/:membership_id') do
     member = Member.new(params)
     member.update_member()
+    membership = Membership.new(params)
+    membership.update_membership()
     erb(:member_edit_success)
 end
 
