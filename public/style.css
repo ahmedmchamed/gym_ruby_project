@@ -29,7 +29,7 @@ div.gallery-row {
   grid-template-columns: 1.25fr 0.75fr;
   padding-left: 100px;
   padding-right: 100px;
-  padding-top: 100px;
+  padding-top: 50px;
 }
 
 div.gallery-row > .gallery-column > p {
