@@ -1,6 +1,11 @@
-<p>This class has the following members booked</p>
-<%@gymclass.members_registered().each do |member|%>
-    <ul>
-        <li><%=member.first_name()%> <%=member.last_name()%></li>
-    </ul>
-<%end%>
+<div class="class-member-details">
+    <p>This class has the following members booked</p>
+    <% if @gymclass.members_registered().size() == 0 %>
+        <p>No members booked</p>
+    <%end%>
+    <%@gymclass.members_registered().each do |member|%>
+        <ul>
+            <li><%=member.first_name()%> <%=member.last_name()%></li>
+        </ul>
+    <%end%>
+</div>

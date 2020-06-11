@@ -198,6 +198,17 @@ div.member-login-details {
   font-size: 16px;
 }
 
+div.class-member-details {
+  display: grid;
+  padding-top: 30px;
+  padding-left: 130px;
+}
+
+div.class-member-details {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
 div.list-of-classes-to-edit {
   display: grid;
   padding-top: 30px;
